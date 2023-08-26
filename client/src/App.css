@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+
+/* layout */
+:root {
+  --primary: #1aac83;
+  --error: #e7195a;
+}
+body {
+  background: #f1f1f1;
+  background-image:url("images/paper.jpg");
+  
+  margin: 0;
+  font-family: "Poppins";
+}
+/* general navbar */
+.header1 {
+  background: #fff;
+}
+
+/* card scroll bar */
+/* .scroll-bar{
+  overflow-x: scroll;
+  height: 10px;
+  
+} */
+.only{
+  column-gap: 1200px;
+  
+}
+.reglink{
+  text-decoration:underline;
+}
+.loglink{
+  text-decoration: underline;
+}
+.header1 .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center; 
+   justify-content: flex-end;
+   column-gap: 60px; 
+   --tw-bg-opacity: 1;
+    background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+    border-radius: 8px;
+   
+}
+.header1 a {
+  color: white;
+  text-decoration: none;
+}
+.pages{
+  max-width: 1400px;
+  /* padding: 20px;
+  margin: 0 auto; */
+}
+
+/* profile navbar */
+.header2{
+  background-color: none;
+}
+.header2 .container{
+  max-width: 1400px;
+  margin: 0;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center; 
+  color: white;
+  
+   justify-content: flex-end;
+   
+   column-gap: 60px;  
+}
+.header2 a {
+  color:white;
+  text-decoration: none;
+ 
+  padding: 6px;
+  border-radius: 12px;
+}
+
+/* homepage */
+.Home {
+  
+  gap: 100px;
+  
+}
+ .workout-details {
+  
+  color: black;
+  border-radius: 4px;
+ 
+   height: auto;
+   
+   padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  
+  position: relative;
+   box-shadow: 2px 2px 12px rgba(0,0,0,0.8); 
+  
+  border-radius: 14px;
+}
+.excluded > .navbar{
+  display: none;
+}
+
+
+
+.workout-details h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+.workout-details p {
+  margin: 0;
+  
+  color: black;
+}
+.workout-details span {
+  position: absolute;
+  bottom: 0px;
+  left: 60px;
+  cursor: pointer;
+ 
+  padding: 6px;
+  border-radius: 20%;
+  color: white;
+}
+.workout-details .span2{
+  left: 12px;
+  bottom:0px;
+  position: absolute;
+}
+
+label,input{
+  display: block;
+}
+input{
+  padding: 10px;
+  width: 100%;
+  font-family: "Poppings";
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  background-color: #333;
+  color: white;
+}
+form button {
+  background:white;
+  border: 0;
+  color: #333;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+}
+.container{
+  text-align: left;
+}
+
+
+/* ProfileTabs.css */
+
+.active-tab {
+  
+border-bottom: 2px solid #3498db;
+ 
+}
+
+
+
+
+
