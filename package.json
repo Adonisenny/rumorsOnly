@@ -1,0 +1,30 @@
+{
+    "dependencies": {
+      "bcrypt": "^5.1.0",
+      "git": "^0.1.5",
+      "jsonwebtoken": "^9.0.0",
+      "multer": "^1.4.5-lts.1",
+      "path": "^0.12.7"
+    },
+  
+  "scripts": {
+   
+     
+    "start": "react-scripts start",
+   
+     
+    "build": "react-scripts build",
+   
+     
+    "test": "react-scripts test",
+   
+     
+    "eject": "react-scripts eject",
+    "install-server":"cd backend && npm install",
+    "start-server":"cd backend && node app.js",
+    "install-client":"cd client && npm install",
+    "build-client":"cd client && npm run build",
+    "start-client":"cd client && npm run start"
+   
+    }
+  }
