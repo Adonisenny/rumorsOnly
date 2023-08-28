@@ -33,7 +33,7 @@ const CommentContent = ({matchedcomments,comment}) => {
 
     const likeHandler = () => {
         try {
-          axios.put("https://therumorsonly.onrender.com/comments/" + comment?._id + "/like", { myid: user._id });
+          axios.put("/comments/" + comment?._id + "/like", { myid: user._id });
         } catch (err) {}
         setLike(isLiked ? like - 1 : like + 1);
         setIsLiked(!isLiked);
@@ -43,7 +43,7 @@ const CommentContent = ({matchedcomments,comment}) => {
       const handleDelete = async() => {
         comments.map(async (slicedcomms) => {
         try {
-             const trydelete = await axios.delete('https://therumorsonly.onrender.com/comments/' + slicedcomms?._id)
+             const trydelete = await axios.delete('/comments/' + slicedcomms?._id)
              const deletedComments =await trydelete.data
             
              dispatch2({type:'DELETE_COMMENTS', payload:deletedComments})

@@ -21,7 +21,7 @@ const location = useLocation()
     e.preventDefault()
     dispatch({type:"SUCCESS"})
     try {
-      const res = await axios.post("https://therumorsonly.onrender.com/auth/logout")
+      const res = await axios.post("http://localhost:7000/api/auth/logout")
       dispatch({type:"LOGOUT",payload:res.data})
       setMenuOpen(false)
     } catch (error) {

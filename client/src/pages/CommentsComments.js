@@ -17,7 +17,7 @@ const CommentsComments = () => {
         e.preventDefault()
 try {
     
-    const response = await axios.post(`https://therumorsonly.onrender.com/commentcomment/comments`,{
+    const response = await axios.post(`/commentcomment/comments`,{
         postId,
         content,
     })
@@ -32,7 +32,7 @@ try {
 
 useEffect(() => {
     const fetchcomments = async () => {
-        const res =await axios.get(`https://therumorsonly.onrender.com/commentcomment/comments/${postId}`)
+        const res =await axios.get(`/commentcomment/comments/${postId}`)
         const jsonc = await res.data
        
         setCommentsComments(jsonc)

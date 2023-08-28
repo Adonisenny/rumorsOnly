@@ -25,7 +25,7 @@ const ProfileBanner2 = ({myprofile}) => {
       
       
             try {
-            const response = await axios.get('https://therumorsonly.onrender.com/profile')
+            const response = await axios.get('http://localhost:7000/api/profile')
             const pdetails = await response.data
             setProfileDetails(pdetails)
           
