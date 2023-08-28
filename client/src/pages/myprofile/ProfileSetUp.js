@@ -20,7 +20,7 @@ formData.append('userId',userId)
 
 
 try{
-    const response = await axios.post('https://therumorsonly.onrender.com/profile',formData)
+    const response = await axios.post('http://localhost:7000/api/profile',formData)
     const otherjson = await response.data
   
     dispatch2({payload:otherjson})

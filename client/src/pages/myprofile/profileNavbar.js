@@ -28,7 +28,7 @@ const location = useLocation()
     e.preventDefault()
     dispatch({type:"SUCCESS"})
     try {
-      const res = await axios.post("https://therumorsonly.onrender.com/auth/logout")
+      const res = await axios.post("http://localhost:7000/api/auth/logout")
       dispatch({type:"LOGOUT",payload:res.data})
       setMenuOpen(false)
     } catch (error) {
@@ -57,7 +57,7 @@ useEffect(() => {
   
   
         try {
-        const response = await axios.get('https://therumorsonly.onrender.com/profile')
+        const response = await axios.get('http://localhost:7000/api/profile')
         const pdetails = await response.data
         setProfileDetails(pdetails)
       
@@ -89,7 +89,7 @@ useEffect(() => {
   return <div key={filteredprofile?._id}>
 
 
- <img src={`https://therumorsonly.onrender.com/${filteredprofile?.imageUrl}`} alt="Not seen yet"  className="w-[60px] h-[60px] rounded-[50%]"/>
+ <img src={`http://localhost:7000/${filteredprofile?.imageUrl}`} alt="Not seen yet"  className="w-[60px] h-[60px] rounded-[50%]"/>
     
    
   
