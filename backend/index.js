@@ -26,6 +26,9 @@ app.use('/uploads',express.static('uploads'))
 
 //middlewares
  app.use(express.json())
+ const corsOptions = {
+    origin: "https://ourrumors.onrender.com", // frontend URI (ReactJS)
+}
 app.use((req,res,next)=> {
     
     next()
