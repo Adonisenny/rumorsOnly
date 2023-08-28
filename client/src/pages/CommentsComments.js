@@ -17,7 +17,7 @@ const CommentsComments = () => {
         e.preventDefault()
 try {
     
-    const response = await axios.post(`http://localhost:7000/api/commentcomment/comments`,{
+    const response = await axios.post(`https://therumorsonly.onrender.com/commentcomment/comments`,{
         postId,
         content,
     })
