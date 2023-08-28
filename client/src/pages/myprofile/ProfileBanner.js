@@ -29,7 +29,7 @@ const ProfileBanner = ({myprofile}) => {
       
       
             try {
-            const response = await axios.get('http://localhost:7000/api/profile')
+            const response = await axios.get('https://therumorsonly.onrender.com/profile')
             const pdetails = await response.data
             setProfileDetails(pdetails)
           
@@ -50,7 +50,7 @@ const ProfileBanner = ({myprofile}) => {
     e.preventDefault()
     dispatch({type:"SUCCESS"})
     try {
-      const res = await axios.post("http://localhost:7000/api/auth/logout")
+      const res = await axios.post("https://therumorsonly.onrender.com/auth/logout")
       dispatch({type:"LOGOUT",payload:res.data})
       setMenuOpen(false)
     } catch (error) {

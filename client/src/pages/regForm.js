@@ -30,7 +30,7 @@ const mymail= email.includes('@')
         dispatch({type:"LOGIN_START"})
        
         try {
-            const res = await axios.post('http://localhost:7000/api/auth/register',information)
+            const res = await axios.post('https://therumorsonly.onrender.com/auth/register',information)
              const otherJson = await res.data
            
             
@@ -51,7 +51,7 @@ const mymail= email.includes('@')
               
               
                     try {
-                    const response = await axios.get('http://localhost:7000/api/auth/users')
+                    const response = await axios.get('https://therumorsonly.onrender.com/auth/users')
                     const allusers = await response.data
                    
                     setAllUsername(allusers)

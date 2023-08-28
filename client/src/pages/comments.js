@@ -40,7 +40,7 @@ const [isdisabled,setIsDisabled] =useState(false)
        
         try {
             const myComments = {thecomments,postedBy,myid}
-            const res = await axios.post('http://localhost:7000/api/comments',myComments)
+            const res = await axios.post('https://therumorsonly.onrender.com/comments',myComments)
             
             const otherJson = await res.data
            
@@ -86,7 +86,7 @@ const [isdisabled,setIsDisabled] =useState(false)
       
       
             try {
-            const response = await axios.get("http://localhost:7000/api/comments")
+            const response = await axios.get("https://therumorsonly.onrender.com/comments")
            const comms = await response.data
           
           
