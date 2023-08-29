@@ -30,7 +30,7 @@ const mymail= email.includes('@')
         dispatch({type:"LOGIN_START"})
        
         try {
-            const res = await axios.post('http://localhost:7000/api/auth/register',information)
+            const res = await axios.post('/auth/register',information)
              const otherJson = await res.data
            
             

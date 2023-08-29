@@ -49,7 +49,7 @@
   "scripts": {
  
    
-  "start": "react-scripts start",
+  "start": "node index.js",
  
    
   "build": "npm run build",
@@ -71,7 +71,7 @@
  
    
   
-  "build-client": "cd client && npm run build",
+
  
    
   "start-client": "cd client && npm run start"

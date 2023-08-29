@@ -57,9 +57,10 @@ useEffect(() => {
   
   
         try {
-        const response = await axios.get('http://localhost:7000/api/profile')
+        const response = await axios.get('/profile')
         const pdetails = await response.data
         setProfileDetails(pdetails)
+        
       
         dispatch2({payload:pdetails})
        
