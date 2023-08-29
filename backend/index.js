@@ -1,5 +1,6 @@
 import  express  from "express"; 
 import dotenv from 'dotenv'
+import path from "path";
 
 import mongoose from "mongoose";
 import cors from 'cors'
@@ -47,6 +48,10 @@ app.use('/api/profile/likes', likesrouter)
 app.get("/", (req,res,next)=>{
     res.json("the workout page1")
 })
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client\build', 'index.html'));
+  });
 
 mongoose.connect(process.env.MONGO)
 .then(() => {
