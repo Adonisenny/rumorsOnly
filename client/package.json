@@ -49,7 +49,7 @@
   "scripts": {
  
    
-  "start": "react-scripts start",
+  "start": "node index.js",
  
    
   "build": "react-scripts build",

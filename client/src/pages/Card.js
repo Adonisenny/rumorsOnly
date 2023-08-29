@@ -104,7 +104,7 @@ useEffect(() => {
 const likeHandler = () => {
   
   try {
-    axios.put("http://localhost:7000/api/rumors/" + rumor._id + "/like", { theId: user._id });
+    axios.put("https://therumorsonly.onrender.com/rumors/" + rumor._id + "/like", { theId: user._id });
   } catch (err) {}
   setLike(isLiked ? like - 1 : like + 1);
   setIsLiked(!isLiked);
