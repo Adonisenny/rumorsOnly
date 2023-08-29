@@ -30,7 +30,7 @@ const mymail= email.includes('@')
         dispatch({type:"LOGIN_START"})
        
         try {
-            const res = await axios.post('https://backendrumors.onrender.com/auth/register',information)
+            const res = await axios.post('https://backendrumors.onrender.com/api/auth/register',information)
              const otherJson = await res.data
            
             
