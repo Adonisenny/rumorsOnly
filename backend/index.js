@@ -48,9 +48,7 @@ app.use('/api/profile/likes', likesrouter)
 app.get("/", (req,res,next)=>{
     res.json("the workout page1")
 })
-app.get("/rumors", (req,res,next)=>{
-    res.json("the workout")
-})
+
 
 const buildPath = path.join(process.cwd(), 'client', 'build');
   // Define a catch-all route that serves index.html for all routes
