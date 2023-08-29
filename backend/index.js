@@ -52,6 +52,10 @@ app.get("/", (req,res,next)=>{
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client\build', 'index.html'));
   });
+  // Define a catch-all route that serves index.html for all routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(buildPath, 'index.html'));
+  });
 
 mongoose.connect(process.env.MONGO)
 .then(() => {
