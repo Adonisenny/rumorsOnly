@@ -48,6 +48,9 @@ app.use('/api/profile/likes', likesrouter)
 app.get("/", (req,res,next)=>{
     res.json("the workout page1")
 })
+app.get("/rumors", (req,res,next)=>{
+    res.json("the workout")
+})
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client\build', 'index.html'));
