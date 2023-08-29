@@ -26,7 +26,7 @@ const Loginform = () => {
         dispatch({type:"LOGIN_START"})
        
         try {
-            const res = await axios.post('http://localhost:7000/api/auth/login',loginfo)
+            const res = await axios.post(' https://backendrumors.onrender.com/api/auth/login',loginfo)
              const otherJson = await res.data
            
             

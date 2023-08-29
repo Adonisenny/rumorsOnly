@@ -28,7 +28,7 @@ const location = useLocation()
     e.preventDefault()
     dispatch({type:"SUCCESS"})
     try {
-      const res = await axios.post("http://localhost:7000/api/auth/logout")
+      const res = await axios.post(" https://backendrumors.onrender.com/api/auth/logout")
       dispatch({type:"LOGOUT",payload:res.data})
       setMenuOpen(false)
     } catch (error) {
@@ -90,7 +90,7 @@ useEffect(() => {
   return <div key={filteredprofile?._id}>
 
 
- <img src={`http://localhost:7000/${filteredprofile?.imageUrl}`} alt="Not seen yet"  className="w-[60px] h-[60px] rounded-[50%]"/>
+ <img src={` https://backendrumors.onrender.com/${filteredprofile?.imageUrl}`} alt="Not seen yet"  className="w-[60px] h-[60px] rounded-[50%]"/>
     
    
   

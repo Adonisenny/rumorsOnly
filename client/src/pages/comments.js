@@ -77,7 +77,7 @@ const [isdisabled,setIsDisabled] =useState(false)
            }
        },[thelength])
 
-
+      
 
 
 //withdraw out the comments
@@ -86,7 +86,7 @@ const [isdisabled,setIsDisabled] =useState(false)
       
       
             try {
-            const response = await axios.get("http://localhost:7000/api/comments")
+            const response = await axios.get(" https://backendrumors.onrender.com/api/comments")
            const comms = await response.data
           
           

@@ -14,7 +14,7 @@ useEffect(() => {
   
   
         try {
-        const response = await axios.get("http://localhost:7000/api/comments")
+        const response = await axios.get(" https://backendrumors.onrender.com/api/comments")
        const comms = await response.data
       
       

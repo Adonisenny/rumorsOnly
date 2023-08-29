@@ -22,10 +22,11 @@ const ProfileBanner2 = ({myprofile}) => {
     
     useEffect(() => {
         const fetchit = async() => {
+          
       
       
             try {
-            const response = await axios.get('http://localhost:7000/api/profile')
+            const response = await axios.get('https://backendrumors.onrender.com/api/profile')
             const pdetails = await response.data
             setProfileDetails(pdetails)
           
@@ -53,7 +54,7 @@ const ProfileBanner2 = ({myprofile}) => {
   return <div key={filteredprofile?._id}>
 
 
- <img src={`http://localhost:7000/${filteredprofile?.imageUrl}`} alt="Not seen yet"  className="w-[110px] h-[110px] rounded-[50%]"/>
+ <img src={`https://backendrumors.onrender.com/${filteredprofile?.imageUrl}`} alt="Not seen yet"  className="w-[110px] h-[110px] rounded-[50%]"/>
     <p>I love you Lord</p>
     <Link to={`/profilesetup/${user?._id}`} className="text-black absolute top-36 right-[240px] md:right-[660px] "><FaEdit /></Link>
   
