@@ -52,9 +52,7 @@ app.get("/rumors", (req,res,next)=>{
     res.json("the workout")
 })
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client\build', 'index.html'));
-  });
+const buildPath = path.join(process.cwd(), 'client', 'build');
   // Define a catch-all route that serves index.html for all routes
 app.get('*', (req, res) => {
     res.sendFile(path.join(buildPath, 'index.html'));
