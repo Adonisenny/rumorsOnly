@@ -1,145 +1,145 @@
 {
  
-    "name": "onlyrumors",
+  "name": "onlyrumors",
+ 
+  "version": "0.1.0",
+ 
+  "private": true,
+ 
+  "dependencies": {
+ 
    
-    "version": "0.1.0",
+  "@testing-library/jest-dom": "^5.16.5",
+ 
    
-    "private": true,
+  "@testing-library/react": "^13.4.0",
+ 
    
-    "dependencies": {
+  "@testing-library/user-event": "^13.5.0",
+ 
    
-     
-    "@testing-library/jest-dom": "^5.16.5",
+  "axios": "^1.4.0",
+ 
    
-     
-    "@testing-library/react": "^13.4.0",
+  "framer-motion": "^10.16.1",
+ 
    
-     
-    "@testing-library/user-event": "^13.5.0",
+  "react": "^18.2.0",
+ 
    
-     
-    "axios": "^1.4.0",
+  "react-dom": "^18.2.0",
+ 
    
-     
-    "framer-motion": "^10.16.1",
+  "react-icons": "^4.8.0",
+ 
    
-     
-    "react": "^18.2.0",
+  "react-router-dom": "^6.11.2",
+ 
    
-     
-    "react-dom": "^18.2.0",
+  "react-scripts": "5.0.1",
+ 
    
-     
-    "react-icons": "^4.8.0",
+  "web-vitals": "^2.1.4",
+ 
    
-     
-    "react-router-dom": "^6.11.2",
+  "zustand": "^4.3.9"
+ 
+  },
+ 
+  "scripts": {
+ 
    
-     
-    "react-scripts": "5.0.1",
-   
-     
-    "web-vitals": "^2.1.4",
-   
-     
-    "zustand": "^4.3.9"
-   
-    },
-   
-    "scripts": {
-   
-     
     "start": "react-scripts start",
+ 
    
-     
-    "build": "npm run build",
+  "build": "react-scripts build ",
+ 
    
-     
-    "test": "react-scripts test",
+  "test": "react-scripts test",
+ 
    
-     
-    "eject": "react-scripts eject",
+  "eject": "react-scripts eject",
+ 
    
-     
-    "install-server": "cd backend && npm install",
+  "install-server": "cd backend && npm install",
+ 
    
-     
-    "start-server": "cd backend && node app.js",
+  "start-server": "cd backend && node app.js",
+ 
    
-     
-    "install-client": "cd client && npm install",
+  "install-client": "cd client && npm install",
+ 
    
-     
-    
-    "build-client": "cd client && npm run build",
+  
+
+ 
    
-     
-    "start-client": "cd client && npm run start"
+  "start-client": "cd client && npm run start"
+ 
+  },
+ 
+  "eslintConfig": {
+ 
    
-    },
+  "extends": [
+ 
    
-    "eslintConfig": {
    
-     
-    "extends": [
+  "react-app",
+ 
    
-     
-     
-    "react-app",
    
-     
-     
-    "react-app/jest"
+  "react-app/jest"
+ 
    
-     
-    ]
+  ]
+ 
+  },
+ 
+  "browserslist": {
+ 
    
-    },
+  "production": [
+ 
    
-    "browserslist": {
    
-     
-    "production": [
+  ">0.2%",
+ 
    
-     
-     
-    ">0.2%",
    
-     
-     
-    "not dead",
+  "not dead",
+ 
    
-     
-     
-    "not op_mini all"
    
-     
-    ],
+  "not op_mini all"
+ 
    
-     
-    "development": [
+  ],
+ 
    
-     
-     
-    "last 1 chrome version",
+  "development": [
+ 
    
-     
-     
-    "last 1 firefox version",
    
-     
-     
-    "last 1 safari version"
+  "last 1 chrome version",
+ 
    
-     
-    ]
    
-    },
+  "last 1 firefox version",
+ 
    
-    "devDependencies": {
    
-     
-    "tailwindcss": "^3.3.3"
+  "last 1 safari version"
+ 
    
-    }
+  ]
+ 
+  },
+ 
+  "devDependencies": {
+ 
+   
+  "tailwindcss": "^3.3.3"
+ 
   }
+}
