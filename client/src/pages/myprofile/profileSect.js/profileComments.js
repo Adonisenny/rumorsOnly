@@ -31,7 +31,7 @@ useEffect(() => {
 
     return ( 
 
-        <div>
+        <div className='workout-details'>
    {comments?.filter(comms => comms?.postedBy ===user?.username).map((co)=>{
     return <div>
         <p>{co?.thecomments}</p>

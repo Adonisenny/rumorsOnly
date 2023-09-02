@@ -74,8 +74,8 @@ return (
     <h2><i>Spread it</i></h2>
     <br />
     <label></label>
-<textarea cols="40" rows="10"
-className="bg-slate-700"
+<textarea 
+className="bg-slate-700 h-[200px] w-[220px] md:w-[350px]"
 placeholder="Write your Rumor"
 onChange= {(e) => setStory(e.target.value)}
 value={story}

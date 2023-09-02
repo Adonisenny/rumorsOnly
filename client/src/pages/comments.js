@@ -137,9 +137,9 @@ const matchedcomments = comments?.filter(cums =>cums?.myid === locateAccount).ma
     return ( 
         <div className="mt-8">
         <form className="text-center ">
-<textarea cols="40" rows="4" 
+<textarea  
 
-className=" bg-slate-800 text-red rounded-[12px]"
+className=" bg-slate-800 text-red rounded-[12px] h-[80px] w-[185px] md:w-[350px]"
 value={thecomments}
 onChange={(e) =>setTheComments(e.target.value)}
 style={{"borderRadius":"4px","color":"white"}}
