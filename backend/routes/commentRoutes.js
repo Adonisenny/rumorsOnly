@@ -4,7 +4,7 @@ import { CommentController, deleteCommentControls, getCommentControl, getallComm
 const router = express.Router()
 
 router.post('/', CommentController)
-router.get('/:id', getCommentControl)
+router.get('/:myid', getCommentControl)
 router.get('/', getallCommentcontrols)
 router.delete('/:id',deleteCommentControls)
 router.put("/:id/like",updateCommentLikes)

@@ -1,8 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
-
 import { UseContextFunction } from "../Hooks/useWorkoutContext";
 import { AuthContext } from "../Context/authcontext";
 
@@ -23,7 +21,7 @@ const CreateForm = ({likes}) => {
 
    const [theId,settheId] =useState(myId)
      const [isdisabled,setIsDisabled] =useState(false)
-    // const [reps,setReps] =useState('')
+    
      const [Error,setError] =useState(null)
    
     
@@ -63,39 +61,25 @@ const CreateForm = ({likes}) => {
                 
                 dispatch({type:'CREATE_RUMORS',payload:otherJson})
                setError(null)
-
-               
-                 navigate("/")
+               navigate("/")
      } catch (error) {
             console.log(error)
            
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-    return (  
+return (  
        
 <form style={{"textAlign":"center", "marginTop":"10%"}}>
     <h2><i>Spread it</i></h2>
     <br />
     <label></label>
-<textarea cols="50" rows="10"
+<textarea cols="40" rows="10"
 className="bg-slate-700"
-placeholder="Rumor"
+placeholder="Write your Rumor"
 onChange= {(e) => setStory(e.target.value)}
 value={story}
 style={{"borderRadius":"7px","color":"white"}}
-
-
 
 ></textarea>
 <br />
@@ -104,13 +88,12 @@ style={{"borderRadius":"7px","color":"white"}}
  &nbsp; &nbsp; &nbsp;  
 <p style={{'display':'inline-bslock'}}>{thelength}</p>
 
-
 {Error &&  <p style={{"backgroundColor":"white","color":"red","paddingLeft":"30px","paddingTop":"15px",'paddingBottom':'15px','borderRadius':'8px'}}>{Error}</p>}
 
 </form>
 
 
-    );
+ );
 }
  
 export default CreateForm;

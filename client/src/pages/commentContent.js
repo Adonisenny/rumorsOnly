@@ -1,30 +1,17 @@
 import { Link } from "react-router-dom";
-
-import {AnimatePresence, motion} from 'framer-motion'
-import { FaComment,  FaTrash } from "react-icons/fa";
+import { FaComment,  FaTrash,FaThumbsUp } from "react-icons/fa";
 import axios from "axios";
 import { useCommentContext } from "../Hooks/useCommentContext";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/authcontext";
-import FourIcons2 from "./fouricons2";
-
-const CommentContent = ({matchedcomments,comment}) => {
 
 
+const CommentContent = ({comment}) => {
 
-    
-
-        const{comments,dispatch2}=useCommentContext()
-    
-
-       
-        
-    const  {user} = useContext(AuthContext)
-    
-    
-    const [like, setLike] = useState(comment?.likes?.length);
+  const{dispatch2}=useCommentContext()
+  const  {user} = useContext(AuthContext)
+  const [like, setLike] = useState(comment?.likes?.length);
   const [isLiked, setIsLiked] = useState(false);
-  const [deletbtn,setDeletBtn] = useState(false)
   const [color,setColor] = useState(false)
   const [isdisabled,setIsDisabled] =useState(false)
   const myusername = user?.username
@@ -33,7 +20,7 @@ const CommentContent = ({matchedcomments,comment}) => {
 
     const likeHandler = () => {
         try {
-          axios.put("/comments/" + comment?._id + "/like", { myid: user._id });
+          axios.put("https://backendrumors.onrender.com/api/comments/" + comment?._id + "/like", { myid: user._id });
         } catch (err) {}
         setLike(isLiked ? like - 1 : like + 1);
         setIsLiked(!isLiked);
@@ -41,23 +28,18 @@ const CommentContent = ({matchedcomments,comment}) => {
 
 //delete function
       const handleDelete = async() => {
-        comments.map(async (slicedcomms) => {
+        
         try {
-             const trydelete = await axios.delete('/comments/' + slicedcomms?._id)
+             const trydelete = await axios.delete('https://backendrumors.onrender.com/api/comments/' + comment?._id)
              const deletedComments =await trydelete.data
             
              dispatch2({type:'DELETE_COMMENTS', payload:deletedComments})
          } catch (error) {
              console.log('It has not been deleted')
          }
-     })
+     
      }
-
-
-
-     const handleClick3 = (id) => {
-        
-       }
+const handleClick3 = (id) => {}
 
 
      const mystyle ={
@@ -88,46 +70,25 @@ const CommentContent = ({matchedcomments,comment}) => {
         }
       },[like])
         
-
-      
+    
     return (  
-        <div>
-        {matchedcomments && matchedcomments.map((match)=> {
-           return <div className='workout-details2' key={match?._id}>
-             <p className="absolute  right-[12px] bottom-[1px]">@{match?.postedBy}</p>
-           
-            
-            
-            <p>{match?.thecomments}</p> 
-            <br/>
-        
-            
-            <FourIcons2  likeHandler={likeHandler} like={like} mystyles={mystyles} mystyle={mystyle} color={color}/>
-        
-        {comments?.map((coco) => {
-            return <div key={coco._id}> 
-            
-            
-          <AnimatePresence>
-            <motion.div exit={{x:"-100vh", opacity:0}}>
-            
-                  <span className="absolute left-[82px] bottom-2"> <button  onClick={handleDelete} disabled={isdisabled} ><FaTrash/></button></span>
-                  </motion.div>
-                  </AnimatePresence>
-                  
-                  <span> <Link to={`/comments/${coco?.myid}/commentscomments/${coco._id}`}  className="absolute left-[123px] bottom-[14px]" onClick={() => handleClick3(coco._id)} ><FaComment/></Link></span>
-           
-            </div>
-           }) }
-        
-        
-        </div>
-            
-        })
-         }
-            
-         </div>
+      <div>
+      
+      <div className='workout-details2' >
+        <p className="absolute  right-[12px] bottom-[1px]">@{comment?.postedBy}</p>
+        <p>{comment?.thecomments}</p> 
+       <br/>
+   
+      <Link onClick={likeHandler} className="absolute left-[10px] bottom-[11px] text-white" style={color ? mystyle:mystyles}><FaThumbsUp /></Link>
+     <p className="absolute left-[38px] bottom-2">{like}</p>
+    
+      <span> <button  onClick={handleDelete} disabled={isdisabled} ><FaTrash  /></button></span>
+      <Link to={`/comments/${comment?.myid}/commentscomments/${comment._id}`} className="absolute left-[99px] bottom-[13px] text-white"  onClick={() => handleClick3(comment._id)} ><FaComment/></Link>
+      
+    </div>
+       </div>
 
+        
     );
 }
  

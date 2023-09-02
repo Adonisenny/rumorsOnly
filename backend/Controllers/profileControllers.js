@@ -27,13 +27,20 @@ export const getAllProfile = async(req,res,next) => {
         next(error)
     }
 }
-export const getProfile = async(req,res,next) => {
+export const getProfile = async(req,res) => {
+   
     try {
-        const profile= await Profile.findById(req.params.userId)
-        res.status(200).json(profile)
-    } catch (error) {
-        console.log(error)
+     const userId = req.params.userId
+
+    const profile = await Profile.find({userId:userId})
+    if(!profile){
+     return res.status(404).json({message:'profile not found'})
     }
+    res.status(200).json(profile)
+    
+    } catch (error) {
+        res.status(500).json({error:"profile not found"})
+}
 }
 export const updatedProfile = async(req,res,next) => {
   

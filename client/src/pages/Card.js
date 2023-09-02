@@ -15,19 +15,13 @@ const Card = ({rumor,slicedcomms}) => {
   
 const {dispatch} = UseContextFunction()
 const {user} = useContext(AuthContext)
-
 const myusername =user?.username
-
-
 const [color,setColor] = useState(false)
 const [addlink,setAddLink] = useState(true)
 const [isdisabled,setIsDisabled] = useState(false)
 const [like, setLike] = useState(rumor?.likes?.length);
-  const [isLiked, setIsLiked] = useState(false);
+const [isLiked, setIsLiked] = useState(false);
 const divref = useRef(null)
-
-
-
 
 useEffect(() => {
 const handleDivRef = (event) => {
@@ -35,7 +29,6 @@ const handleDivRef = (event) => {
 setAddLink(true)
 
   }
-
 
 }
 document.addEventListener('click', handleDivRef)
@@ -121,7 +114,7 @@ const likeHandler = () => {
     
 
   const filterLikes = rumor?.likes?.filter(rums => rums === user?._id).map((flikes) => {
-return flikes
+return   flikes 
  })
 
 
@@ -135,7 +128,7 @@ return flikes
         <div >
         <i>@{rumor.postedBy}</i>
         <hr />
-        <p>{rumor?.story}</p>
+        <p className='text-white'>{rumor?.story}</p>
         </div> 
 <div>
  

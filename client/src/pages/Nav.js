@@ -52,12 +52,15 @@ useEffect(() => {
         <hr/>
       <div className="container">
         
-        {!myusername && <Link to="/registration" style={{"textDecoration":"none", "display":"flex"}}>Register here</Link>}
+        {!myusername && <Link to="/registration" style={{"textDecoration":"none", "display":"flex"}} className='hidden md:block'>Register here</Link>}
        {myusername&& <Link to={`/profile/${user._id}`}  style={{"textDecoration":"none", "display":"flex"}}>{myusername}</Link>}
       
        
-        {myusername && <button onClick={handleLogout}className='hidden md:block'>Logout</button> }
-        <Link to='/form' onClick={handledisappear} disabled={isdisabled} className='mr-16'>Spread</Link>
+        {myusername && <button onClick={handleLogout}className='hidden md:block text-white'>Logout</button> }
+        <Link to='/form' onClick={handledisappear} disabled={isdisabled} className='mr-16'>Spread</Link>:
+     
+    
+    
       </div>
       <div>
     <Hamburger setMenuOpen={setMenuOpen} menuOpen={menuOpen} handleLogout={handleLogout} myusername={myusername}/>

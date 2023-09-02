@@ -10,15 +10,28 @@ const Regform = () => {
     const {dispatch} = useContext(AuthContext)
     const [email,setEmail] =useState('')
     const [username,setUsername] =useState('')
-    const [password,setPassword] =useState('')
+    const [password,setPassword] =useState('' && Number)
     const [Error,setError] =useState(null)
     const [isdisabled,setIsdisabled] =useState(true)
     const[allUsername,setAllUsername] =useState('')
     const navigate = useNavigate()
-    
+   
 const mymail= email.includes('@')
+const mypassword = /\d/.test(password);
 
 
+
+
+
+useEffect(()=>{
+    if(!mymail){
+        setError("your email must include @")
+    }else if(!mypassword){
+        setError('password must include letters and numbers')
+    }else{
+        setError('')
+    }
+},[mymail,mypassword])
     
 
     const handleSubmit = async(e) => {
@@ -84,12 +97,12 @@ useEffect(()=> {
 
     const  passwordLength =password.length
     useEffect(()=>{
-        if(passwordLength >=8 && mymail && !checkusers){
+        if(passwordLength >=8 && mymail && !checkusers && mypassword){
             setIsdisabled(false)
         }else{
             setIsdisabled(true)
         }
-    },[passwordLength,mymail,checkusers])
+    },[passwordLength,mymail,checkusers,mypassword])
     return (  
 <form className="container">
     <h3>Register</h3>
@@ -118,7 +131,7 @@ value={username}
 <input 
 className="myinput rounded-2xl"
 type="password"
-placeholder="password with 8 or more characters"
+placeholder="password must include letters and numbers"
 onChange= {(e) => setPassword(e.target.value)}
 value={password}
 

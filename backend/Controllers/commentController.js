@@ -1,6 +1,6 @@
 import Comment from '../models/commentModel.js'
 import mongoose from 'mongoose'
-
+//post controllers
 export const CommentController = async(req,res) => {
     try {
        
@@ -23,18 +23,33 @@ export const CommentController = async(req,res) => {
 
 
 
+    // export const getCommentControl = async(req,res) => {
+    //     const {id} = req.params
+    //     if(!mongoose.Types.ObjectId.isValid(id)){
+    //         return res.status(404).json({error:"not such comments"})
+    //     }
+    //     const myComments = await Comment.findById(id)
+    //     if(!myComments){
+    //         res.json(400).json({error: "no such error"})
+    //     }
+    //     res.status(200).json(myComments)
+    //     }
+//Get  comments attached to a particular post
     export const getCommentControl = async(req,res) => {
-        const {id} = req.params
-        if(!mongoose.Types.ObjectId.isValid(id)){
-            return res.status(404).json({error:"not such comments"})
+   
+        try {
+         const myid = req.params.myid
+    
+        const comment = await Comment.find({myid:myid})
+        if(!comment){
+         return res.status(404).json({message:'comment not found'})
         }
-        const myComments = await Comment.findById(id)
-        if(!myComments){
-            res.json(400).json({error: "no such error"})
-        }
-        res.status(200).json(myComments)
-        }
-
+        res.status(200).json(comment)
+        
+        } catch (error) {
+            res.status(500).json({error:"comment not found"})
+    }
+    }   
 
 
         export const getallCommentcontrols = async(req,res) => {

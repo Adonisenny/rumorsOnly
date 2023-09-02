@@ -18,17 +18,14 @@ const ProfileNavbar = () => {
   const [profileDetails, setProfileDetails] = useState('')
   const{dispatch2} = useCommentContext();
   const idlocation = useLocation()
-  
   const userId = idlocation.pathname.split('/')[2]   
   const user_id = user?._id
-const location = useLocation()
-  const locateProfile = location.pathname.split('/')[1]
- 
+  
   const handleLogout = async(e) => {
     e.preventDefault()
     dispatch({type:"SUCCESS"})
     try {
-      const res = await axios.post(" https://backendrumors.onrender.com/api/auth/logout")
+      const res = await axios.post("https://backendrumors.onrender.com/api/auth/logout")
       dispatch({type:"LOGOUT",payload:res.data})
       setMenuOpen(false)
     } catch (error) {
@@ -49,15 +46,12 @@ useEffect(() => {
   }
 
 
-
-
-
-  useEffect(() => {
+useEffect(() => {
     const fetchit = async() => {
   
   
         try {
-        const response = await axios.get('/profile')
+        const response = await axios.get('https://backendrumors.onrender.com/api/profile')
         const pdetails = await response.data
         setProfileDetails(pdetails)
         
@@ -90,7 +84,7 @@ useEffect(() => {
   return <div key={filteredprofile?._id}>
 
 
- <img src={` https://backendrumors.onrender.com/${filteredprofile?.imageUrl}`} alt="Not seen yet"  className="w-[60px] h-[60px] rounded-[50%]"/>
+ <img src={`https://backendrumors.onrender.com/${filteredprofile?.imageUrl}`} alt="Not seen yet"  className="w-[60px] h-[60px] rounded-[50%]"/>
     
    
   

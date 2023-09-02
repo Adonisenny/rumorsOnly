@@ -11,7 +11,7 @@ import {useLocation } from 'react-router-dom';
 import CommentContent from "./commentContent";
 
 
-const Comments = ({rumor,slicedcomms,coomms}) => {
+const Comments = ({slicedcomms}) => {
   
     
     const{comments,dispatch2}=useCommentContext()
@@ -30,7 +30,7 @@ const [isdisabled,setIsDisabled] =useState(false)
 
                               
     
-   console.log(coomms)
+  
 
 
 //Post comments
@@ -40,13 +40,13 @@ const [isdisabled,setIsDisabled] =useState(false)
        
         try {
             const myComments = {thecomments,postedBy,myid}
-            const res = await axios.post('/comments',myComments)
+            const res = await axios.post('https://backendrumors.onrender.com/api/comments',myComments)
             
             const otherJson = await res.data
            
          
                 
-                // setComments([...Comments,res.data])
+               console.log(otherJson)
                  setTheComments('')
                
                 
@@ -80,17 +80,18 @@ const [isdisabled,setIsDisabled] =useState(false)
       
 
 
-//withdraw out the comments
+
     useEffect(() => {
         const fetchit = async() => {
       
       
             try {
-            const response = await axios.get(" https://backendrumors.onrender.com/api/comments")
-           const comms = await response.data
+            const response = await axios.get(`https://backendrumors.onrender.com/api/comments/${myid}`)
+            
+            const comms = await response.data
           
-          
-            dispatch2({type:'SET_COMMENTS',payload:comms})
+         
+             dispatch2({type:'SET_COMMENTS',payload:comms})
            
         
            } catch (error) {
@@ -98,7 +99,10 @@ const [isdisabled,setIsDisabled] =useState(false)
            }
         }
         fetchit()
-    },[dispatch2])
+    },[dispatch2,myid])
+    
+   
+
     
    
 
@@ -109,6 +113,7 @@ const [isdisabled,setIsDisabled] =useState(false)
 
 
  const myday = slicedcomms?.createdAt
+ console.log(slicedcomms?.createdAt)
 const postday = new Date(myday)
 const currentDate = new Date()
 const trydate = (postday.getDate() +  " " + postday.toLocaleString('default', { month: 'long' }) + " " + postday.getFullYear())
@@ -146,10 +151,13 @@ style={{"borderRadius":"4px","color":"white"}}
 </form>
 <br />
 
-{comments?.map((comment) => {
-    return <CommentContent matchedcomments={matchedcomments} comment={comment} />
 
-})}
+<div className="workout-details"> 
+ {comments?.map((comment) => (
+    
+<CommentContent comment={comment}/>
+))}
+</div>
 </div>
 
      );

@@ -18,9 +18,7 @@ const ProfileBanner = ({myprofile}) => {
     const {rumors} =UseContextFunction()
     const [profileDetails, setProfileDetails] = useState('')
     const [menuOpen,setMenuOpen] =useState(false)
-    const user_id = user?._id
     const myusername =user?.username
-    let PrumorLength = myprofile?.length;
     const idlocation = useLocation()
     const userId = idlocation.pathname.split('/')[2]    
 

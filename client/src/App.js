@@ -22,8 +22,7 @@ function App() {
    <>
    <div>
   
-   
-    <BrowserRouter>
+   <BrowserRouter>
     <RenderNavbar>
    <Navbar /> 
    </RenderNavbar>

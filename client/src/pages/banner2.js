@@ -11,11 +11,8 @@ import axios from "axios";
 const ProfileBanner2 = ({myprofile}) => {
     const {user} = useContext(AuthContext);
     const{dispatch2} = useCommentContext();
-    
     const [profileDetails, setProfileDetails] = useState('')
-    
     const user_id = user?._id
-   
     const idlocation = useLocation()
     const userId = idlocation.pathname.split('/')[2]
 
@@ -23,9 +20,7 @@ const ProfileBanner2 = ({myprofile}) => {
     useEffect(() => {
         const fetchit = async() => {
           
-      
-      
-            try {
+    try {
             const response = await axios.get('https://backendrumors.onrender.com/api/profile')
             const pdetails = await response.data
             setProfileDetails(pdetails)
