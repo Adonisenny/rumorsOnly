@@ -31,11 +31,11 @@ useEffect(() => {
 
     return ( 
 
-        <div className='workout-details'>
+        <div >
    {comments?.filter(comms => comms?.postedBy ===user?.username).map((co)=>{
-    return <div>
+    return <div className='workout-details2'>
         <p>{co?.thecomments}</p>
-        <p className="absolute  right-[12px] bottom-[1px] bg-slate-800 rounded-[12px] p-[4px]">{co?.postedBy}</p>
+        <p className="absolute  right-[12px] bottom-[1px] bg-slate-800 rounded-[12px] p-[4px] text-stone-50">{co?.postedBy}</p>
         </div>
    })
    
