@@ -4,7 +4,6 @@ import { useContext, useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import Hamburger from './hamburger';
-import { useLocation } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -14,9 +13,7 @@ const Navbar = () => {
   const [menuOpen,setMenuOpen] =useState(false)
   const [isdisabled,setIsDisabled] = useState(false)
 
-const location = useLocation()
-  const locateProfile = location.pathname.split('/')[1]
- 
+
   const handleLogout = async(e) => {
     e.preventDefault()
     dispatch({type:"SUCCESS"})
@@ -47,7 +44,7 @@ useEffect(() => {
   return (
     <header className='header1'>
       <div className='bg-slate-800 rounded-[8px]'><Link to="/">
-          <h2>OnlyRumors</h2>
+          <h2>rumorsOnly</h2>
         </Link></div>
         <hr/>
       <div className="container">

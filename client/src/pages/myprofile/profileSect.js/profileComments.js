@@ -35,7 +35,7 @@ useEffect(() => {
    {comments?.filter(comms => comms?.postedBy ===user?.username).map((co)=>{
     return <div className='workout-details2'>
         <p>{co?.thecomments}</p>
-        <p className="absolute  right-[12px] bottom-[1px] bg-slate-800 rounded-[12px] p-[4px] text-stone-50">{co?.postedBy}</p>
+        <p className="absolute  right-[12px] bottom-[1px] bg-slate-800 rounded-[12px] p-[4px]" style={{'color':'white'}}>{co?.postedBy}</p>
         </div>
    })
    

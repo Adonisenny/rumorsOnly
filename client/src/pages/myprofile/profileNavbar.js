@@ -72,7 +72,7 @@ useEffect(() => {
     <header className='header2 bg-slate-800 rounded-[14px]' >
         <div className=' only flex '>
       <Link to="/">
-          <p><i>OnlyRumors</i></p>
+          <p><i>rumorsOnly</i></p>
         </Link>
 
 

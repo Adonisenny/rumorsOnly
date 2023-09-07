@@ -128,7 +128,7 @@ return   flikes
         <div >
         <i>@{rumor.postedBy}</i>
         <hr />
-        <p className='text-white'>{rumor?.story}</p>
+        <p className=''>{rumor?.story}</p>
         </div> 
 <div>
  

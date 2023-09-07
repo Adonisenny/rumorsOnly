@@ -69,7 +69,7 @@ const Home = () => {
         <div className="Home   md:grid grid-cols-[3fr,1fr] bg-transparent">
          <div className="workout-details overflow-y-auto ">
          
-    {therumours}
+    {rumors ? <div>{therumours}</div>:<p>loading...</p>}
 
     
     </div>
