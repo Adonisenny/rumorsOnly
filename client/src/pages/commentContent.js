@@ -79,11 +79,11 @@ const handleClick3 = (id) => {}
         <p>{comment?.thecomments}</p> 
        <br/>
    
-      <Link onClick={likeHandler} className="absolute left-[10px] bottom-[11px] text-white" style={color ? mystyle:mystyles}><FaThumbsUp /></Link>
+      <Link onClick={likeHandler} className="absolute left-[10px] bottom-[11px] text-white" style={color ? mystyle:mystyles}><FaThumbsUp size={14}  className="text-stone-800" /></Link>
      <p className="absolute left-[38px] bottom-2">{like}</p>
     
-      <span> <button  onClick={handleDelete} disabled={isdisabled} ><FaTrash  /></button></span>
-      <Link to={`/comments/${comment?.myid}/commentscomments/${comment._id}`} className="absolute left-[99px] bottom-[13px] text-white"  onClick={() => handleClick3(comment._id)} ><FaComment/></Link>
+      <span> <button  onClick={handleDelete} disabled={isdisabled} ><FaTrash size={14}  className="text-stone-800" /></button></span>
+      <Link to={`/comments/${comment?.myid}/commentscomments/${comment._id}`} className="absolute left-[99px] bottom-[13px] text-white"  onClick={() => handleClick3(comment._id)} ><FaComment size={14}  className="text-stone-800"/></Link>
       
     </div>
        </div>

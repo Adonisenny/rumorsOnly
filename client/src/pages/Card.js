@@ -79,10 +79,12 @@ const handleClick = async () => {
 
 const mystyle ={
   backgroundColor:"#6A5ACD",
-  borderRadius:'12px'
+  borderRadius:'12px',
+  color:'white'
 }
 const mystyles ={
-  backgroundColor:""
+  backgroundColor:"",
+  color:'#292524'
 }
 
 
@@ -126,18 +128,20 @@ return   flikes
         
         <div className="workout-details   bg-transparent" >
         <div >
-        <i>@{rumor.postedBy}</i>
-        <hr />
-        <p className=''>{rumor?.story}</p>
+        <p className='' style={{textWrap:'wrap',color:'white'}}>{rumor?.story}</p>
+        <i className='absolute right-[12px] bottom-[1px] bg-slate-800 rounded-[12px] p-[4px] text-white'>{rumor.postedBy}</i>
+        
+       
         </div> 
 <div>
- 
+ <br />
    
           <div>
-  <span> <Link to={`/comments/${rumor._id}`}  className="absolute left-[45px] bottom-[12px]"  ><FaComment/></Link></span>
+  <span> <Link to={`/comments/${rumor._id}`}  className="absolute left-[45px] bottom-[12px]"  ><FaComment size={14} className="text-stone-800"/></Link></span>
 
  </div>  
 <div>
+  <br />
 
 <FourIcons trydate={trydate}  mystyle={mystyle} mystyles={mystyles} handleClick={handleClick}  isdisabled={isdisabled}  rumourid={rumor?._id} likeHandler={likeHandler} like={like} color={color}/>
 </div>

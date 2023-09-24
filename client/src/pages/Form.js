@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import { UseContextFunction } from "../Hooks/useWorkoutContext";
 import { AuthContext } from "../Context/authcontext";
+import Notification from "./Notifications";
 
 
 
@@ -16,7 +17,7 @@ const CreateForm = ({likes}) => {
     
     const navigate = useNavigate()
     const [story,setStory] =useState('')
-
+    const [pop,setPop] = useState(false)
    const [postedBy,setpostedBy] =useState(whopost)
 
    const [theId,settheId] =useState(myId)
@@ -61,19 +62,32 @@ const CreateForm = ({likes}) => {
                 
                 dispatch({type:'CREATE_RUMORS',payload:otherJson})
                setError(null)
-               navigate("/")
+               if(res.statusText ==="OK"){
+                setPop(true)
+                setTimeout(() => {
+                    navigate('/')
+                },2000)
+              
+
+               } 
+            
      } catch (error) {
             console.log(error)
            
         }
     }
+    const closeNotify = () =>{
+        setPop(false)
+            }
 
 return (  
+    <>{pop &&  <Notification message="Rumor sent successfuly !" onClose={closeNotify} />}
        
 <form style={{"textAlign":"center", "marginTop":"10%"}}>
     <h2><i>Spread it</i></h2>
+
     <br />
-    <label></label>
+    
 <textarea 
 className="bg-slate-700 h-[200px] w-[220px] md:w-[350px]"
 placeholder="Write your Rumor"
@@ -92,7 +106,7 @@ style={{"borderRadius":"7px","color":"white"}}
 
 </form>
 
-
+</>
  );
 }
  

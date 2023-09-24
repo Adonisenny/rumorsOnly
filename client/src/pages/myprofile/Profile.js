@@ -66,6 +66,7 @@ const Profile = () => {
    
     return ( 
       <div className="m-0">
+        <Link to='/' className="text-white">OnlyRumors</Link>
         <div className="hidden md:block">
 <ProfileNavbar />
 
@@ -111,7 +112,7 @@ const Profile = () => {
 
 
 
-<div className="right-[35px] top-[200px]  md:top-[330px] md:right-[80px] fixed w-[47px] h-[47px] rounded-[50%] bg-[#9998a4] opacity-75">
+<div className="right-[35px] top-[200px] bg-slate-800  md:top-[330px] md:right-[80px] fixed w-[47px] h-[47px] rounded-[50%] bg-[#9998a4] opacity-75">
 <Link to ='/form' >
 <img src='https://cdn.icon-icons.com/icons2/2248/PNG/512/broom_icon_136857.png' alt="broom2" className="h-[42px] w-[42px]"/>
 </Link>

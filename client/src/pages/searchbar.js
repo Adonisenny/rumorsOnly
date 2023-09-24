@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useContext} from "react";
 
 import { AuthContext } from '../Context/authcontext';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
@@ -12,10 +12,8 @@ import { Link } from "react-router-dom";
 const SearchBar = ({inputed,setInputed}) => {
    
     const {user,dispatch} = useContext(AuthContext);
-
-    
-     const myusername = user?.username
-   
+    const myusername = user?.username
+    const navigate = useNavigate()
     
    
  
@@ -27,6 +25,7 @@ const SearchBar = ({inputed,setInputed}) => {
         try {
           const res = await axios.post(" https://backendrumors.onrender.com/api/auth/logout")
           dispatch({type:"LOGOUT",payload:res.data})
+          navigate('/')
           
         } catch (error) {
           console.log(error)
@@ -44,7 +43,7 @@ const SearchBar = ({inputed,setInputed}) => {
    
    
     return (  
-<div>
+<div className='bg-opacity-100 bg-green-700'>
 <form>
 <input
 type="text"

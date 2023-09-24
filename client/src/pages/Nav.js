@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from "../Context/authcontext";
 import { useContext, useEffect } from 'react';
 import axios from 'axios';
@@ -12,7 +12,7 @@ const Navbar = () => {
   const myusername =user?.username
   const [menuOpen,setMenuOpen] =useState(false)
   const [isdisabled,setIsDisabled] = useState(false)
-
+  const navigate = useNavigate()
 
   const handleLogout = async(e) => {
     e.preventDefault()
@@ -21,6 +21,7 @@ const Navbar = () => {
       const res = await axios.post(" https://backendrumors.onrender.com/api/auth/logout")
       dispatch({type:"LOGOUT",payload:res.data})
       setMenuOpen(false)
+      navigate('/logout')
     } catch (error) {
       console.log(error)
     }
@@ -38,9 +39,7 @@ useEffect(() => {
 
   }
 
-  // if (!user) {
-  //   return redirect("/login");
-  // }
+  
   return (
     <header className='header1'>
       <div className='bg-slate-800 rounded-[8px]'><Link to="/">
@@ -54,8 +53,7 @@ useEffect(() => {
       
        
         {myusername && <button onClick={handleLogout}className='hidden md:block text-white'>Logout</button> }
-        <Link to='/form' onClick={handledisappear} disabled={isdisabled} className='mr-16'>Spread</Link>:
-     
+        {myusername ?<Link to='/form' onClick={handledisappear} disabled={isdisabled} className='mr-16'>Spread</Link> : <Link to="/login" style={{"textDecoration":"none", "display":"flex"}} className='mr-16'>Login</Link>}
     
     
       </div>

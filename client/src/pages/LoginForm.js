@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import axios from 'axios'
 import { Link } from "react-router-dom";
+import Notification from "./Notifications";
 
 
 
@@ -13,6 +14,7 @@ const Loginform = () => {
     const [username,setUsername] =useState('')
     const [password,setPassword] =useState('')
     const [Error,setError] =useState(null)
+    const [poping,setPoping] = useState(false)
      const navigate = useNavigate()
     
 
@@ -35,7 +37,14 @@ const Loginform = () => {
                 
                 dispatch({type:"LOGIN_SUCCESS",payload:otherJson})
                 setError(null)
-                navigate('/')
+                if(res.statusText ==="OK"){
+                    setPoping(true)
+                    setTimeout(() => {
+                        navigate('/')
+                    },2000)
+                  
+    
+                   } 
 
 
         } catch (error) {
@@ -43,25 +52,30 @@ const Loginform = () => {
            
         }
     }
+
+    const closeNotify = () =>{
+        setPoping(false)
+            }
     return (  
-<form className="container">
-    <h3>Login</h3>
-    <br></br>
+        <>
+         {poping && <Notification message="Logged in successfully!" onClose={closeNotify} />}
+<form className="contains">
     
+    <br /> <br />
 
 <label>Username</label>
 <input 
-className="myinput"
+
 type= "text"
 placeholder="username"
 onChange= {(e) => setUsername(e.target.value)}
 value={username}
-
+className="px-[35px] py-[10px] rounded-xl m-0"
 
 />
 <label>Password</label>
 <input 
-className="myinput"
+className="px-[35px] py-[10px] rounded-xl"
 type="password"
 placeholder="password"
 onChange= {(e) => setPassword(e.target.value)}
@@ -70,10 +84,10 @@ value={password}
 
 />
 <button onClick={handleSubmit}>Submit</button>
-{Error &&  <p style={{"backgroundColor":"white","color":"red","paddingLeft":"30px","paddingTop":"15px",'paddingBottom':'15px','borderRadius':'8px'}}>{Error}</p>}
-<p>If you are not registered <Link to='/register' className='reglink'>Register.</Link></p>
+{/* {Error &&  <p style={{"backgroundColor":"white","color":"red","paddingLeft":"30px","paddingTop":"15px",'paddingBottom':'15px','borderRadius':'8px'}}>{Error}</p>} */}
+<p>If you are not registered <Link to='/registration' className='reglink'>Register.</Link></p>
 </form>
-
+</>
 
     );
 }

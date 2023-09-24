@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import axios from 'axios'
 import { Link } from "react-router-dom";
+import Notification from "./Notifications";
 
 
 const Regform = () => {
@@ -14,6 +15,7 @@ const Regform = () => {
     const [Error,setError] =useState(null)
     const [isdisabled,setIsdisabled] =useState(true)
     const[allUsername,setAllUsername] =useState('')
+    const[pops,setPops] =useState()
     const navigate = useNavigate()
    
 const mymail= email.includes('@')
@@ -103,11 +105,16 @@ useEffect(()=> {
             setIsdisabled(true)
         }
     },[passwordLength,mymail,checkusers,mypassword])
-    return (  
-<form className="container">
-    <h3>Register</h3>
-    <br></br>
-    <label>Email</label>
+    const closeNotify = () =>{
+        setPops(false)
+            }
+
+
+    return (
+        <> {pops && <Notification message="Registered successfully!" onClose={closeNotify} />}  
+<form className="contains">
+  
+    
 <input 
 className="myinput rounded-2xl"
 type="text"
@@ -117,7 +124,7 @@ value={email}
 
 
 />
-<label>Username</label>
+
 <input 
 className="myinput rounded-2xl bg-[#333]"
 type= "text"
@@ -127,7 +134,7 @@ value={username}
 
 
 />
-<label>Password</label>
+
 <input 
 className="myinput rounded-2xl"
 type="password"
@@ -144,7 +151,7 @@ value={password}
 <p>If you are registered <Link to='/login' className='loglink'>Login.</Link></p>
 </form>
 
-
+</>
     );
 }
  

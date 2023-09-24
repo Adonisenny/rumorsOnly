@@ -28,20 +28,20 @@ return (
 </div>
 
 
-<div className={`absolute top-0 h-screen w-1/3 bg-gradient-to-tl from-white/10 to-[#9998a4] backdrop-blur-lg z-10 p-6 md:hidden smooth-transition ${ menuOpen ?'left-0':'-left-full'}`}>
+<div className={`absolute top-0 h-screen w-1/3 bg-gradient-to-tl from-white/10 to-[#0F172A] backdrop-blur-lg z-10 p-6 md:hidden smooth-transition ${ menuOpen ?'left-0':'-left-full'}`}>
 
 
 
 
 
-{  <Link to='/'>Home</Link>}
+{  <Link to='/' className='text-white'>Home</Link>}
 <br />
-{myusername ? <Link onClick={handleLogout}    >Logout</Link>:  <Link to='/registeration'>Register</Link>}
+{myusername ? <Link onClick={handleLogout} className='text-white'  >Logout</Link>:  <Link to='/registeration'>Register</Link>}
 
 
 
 <br />
-<Link  to={`/profilesetup/${user?._id}`}>Profile SetUp</Link>
+<Link  to={`/profilesetup/${user?._id}`} className='text-white'>Profile SetUp</Link>
 
     </div>
     </>

@@ -4,7 +4,7 @@ const ProfileBanner3 = ({myprofile,handleTabChange,activeTab}) => {
     
     let PrumorLength = myprofile?.length;
     return ( 
-<div className="flex flex-row gap-24 items-center justify-center">
+<div className="flex flex-row gap-16 items-center justify-center">
 
 
 <div>
