@@ -43,7 +43,7 @@ useEffect(() => {
   return (
     <header className='header1'>
       <div className='bg-slate-800 rounded-[8px]'><Link to="/">
-          <h2>rumorsOnly</h2>
+          <h2>OnlyRumors</h2>
         </Link></div>
         <hr/>
       <div className="container">

@@ -41,7 +41,7 @@ return (
 
 
 <br />
-<Link  to={`/profilesetup/${user?._id}`} className='text-white'>Profile SetUp</Link>
+<Link  to={`/profilesetup/${user?._id}`} className='text-white'>SetUp</Link>
 
     </div>
     </>

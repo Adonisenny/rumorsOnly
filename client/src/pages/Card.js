@@ -45,7 +45,7 @@ document.removeEventListener('click',handleDivRef)
 const myday = rumor.createdAt
 const postday = new Date(myday)
 const currentDate = new Date()
-const trydate = (postday.getDate() +  " " + postday.toLocaleString('default', { month: 'long' }) + " " + postday.getFullYear())
+const trydate = (postday.getDate() +  " " + postday.toLocaleString('default', { month: 'short' }) + " " + postday.getFullYear())
 currentDate.setHours(0,0,0,0)
 
 //delete Icons
@@ -78,7 +78,7 @@ const handleClick = async () => {
 
 
 const mystyle ={
-  backgroundColor:"#6A5ACD",
+  backgroundColor:"#0F172A",
   borderRadius:'12px',
   color:'white'
 }
@@ -137,7 +137,7 @@ return   flikes
  <br />
    
           <div>
-  <span> <Link to={`/comments/${rumor._id}`}  className="absolute left-[45px] bottom-[12px]"  ><FaComment size={14} className="text-stone-800"/></Link></span>
+  <span> <Link to={`/comments/${rumor._id}`}  className="absolute left-[45px] bottom-[12px]"  ><FaComment size={14} className="text-stone-800" disabled={isdisabled}/></Link></span>
 
  </div>  
 <div>

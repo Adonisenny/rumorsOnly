@@ -37,14 +37,14 @@ const Loginform = () => {
                 
                 dispatch({type:"LOGIN_SUCCESS",payload:otherJson})
                 setError(null)
-                if(res.statusText ==="OK"){
+                
                     setPoping(true)
                     setTimeout(() => {
                         navigate('/')
                     },2000)
                   
     
-                   } 
+                  
 
 
         } catch (error) {

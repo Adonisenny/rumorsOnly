@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { AuthContext } from "../../Context/authcontext"
 import { UseContextFunction } from "../../Hooks/useWorkoutContext"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import ProfileBanner2 from "../banner2"
 import ProfileBanner3 from "./banner3"
 import Hamburgertwo from "../../Hamburgers/hamburgers2"
@@ -23,7 +23,7 @@ const Profile = () => {
     let myusername = user?.username
     const idlocation = useLocation()
     const userId = idlocation.pathname.split('/')[2]
-   
+    const navigate = useNavigate()
 
     const myprofile = rumors?.filter(rums => rums?.postedBy === myusername).map(filteredrumour => {
         return filteredrumour
@@ -54,6 +54,7 @@ const Profile = () => {
           const res = await axios.post(" https://backendrumors.onrender.com/api/auth/logout")
           dispatch({type:"LOGOUT",payload:res.data})
           setMenuOpen(false)
+          navigate('/logout')
         } catch (error) {
           console.log(error)
         }
@@ -66,7 +67,7 @@ const Profile = () => {
    
     return ( 
       <div className="m-0">
-        <Link to='/' className="text-white">OnlyRumors</Link>
+        <Link to='/' className="text-white block md:hidden">OnlyRumors</Link>
         <div className="hidden md:block">
 <ProfileNavbar />
 

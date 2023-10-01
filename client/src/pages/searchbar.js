@@ -25,7 +25,7 @@ const SearchBar = ({inputed,setInputed}) => {
         try {
           const res = await axios.post(" https://backendrumors.onrender.com/api/auth/logout")
           dispatch({type:"LOGOUT",payload:res.data})
-          navigate('/')
+          navigate('/logout')
           
         } catch (error) {
           console.log(error)

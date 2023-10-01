@@ -12,6 +12,7 @@ return (
    {rumors?.filter(rums => rums?.postedBy === myusername).map((filterRumor) => {
 return <div className='workout-details'>
     <p>{filterRumor?.story}</p>
+    <br />
     <p className='absolute right-[12px] bottom-[1px] bg-slate-800 rounded-[12px] p-[4px]'style={{color:"white"}}>{filterRumor?.postedBy}</p>
     
     </div>

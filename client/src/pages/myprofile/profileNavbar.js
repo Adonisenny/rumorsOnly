@@ -72,14 +72,14 @@ useEffect(() => {
     <header className='header2 bg-slate-800 rounded-[14px]' >
         <div className=' only flex '>
       <Link to="/">
-          <p><i>rumorsOnly</i></p>
+          <p><i className=''>OnlyRumors</i></p>
         </Link>
 
 
 
 
 
-        <div className="hikdden md:flex">
+        <div className="hidden md:flex">
 {(profileDetails || null ) && profileDetails?.filter(profileDetail => profileDetail?.userId === user_id).map((filteredprofile) =>{
   return <div key={filteredprofile?._id}>
 

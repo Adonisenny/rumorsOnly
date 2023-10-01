@@ -14,6 +14,7 @@ import RenderNavbar from "./pages/conditionalRendering/RenderNavBar";
 import ProfileSetUP from "./pages/myprofile/ProfileSetUp.js";
 import CommentsComments from "./pages/CommentsComments";
 import Likes from "./pages/myprofile/Like";
+import Logoutpage from "./pages/logoutpage";
 
 
 function App() {
@@ -44,6 +45,10 @@ element = {<Regform />}
 <Route 
 path="/login"
 element = {<Loginform />}
+/>
+<Route 
+path="/logout"
+element = {<Logoutpage />}
 />
 <Route 
 path="/profile/:_id"
