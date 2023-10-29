@@ -20,7 +20,7 @@ const CommentContent = ({comment}) => {
 
     const likeHandler = () => {
         try {
-          axios.put("https://backendrumors.onrender.com/api/comments/" + comment?._id + "/like", { myid: user._id });
+          axios.put("https://backendrumors.onrender.com/api/comments/" + comment?._id + "/like", { postId: user._id });
         } catch (err) {}
         setLike(isLiked ? like - 1 : like + 1);
         setIsLiked(!isLiked);
@@ -43,12 +43,14 @@ const handleClick3 = (id) => {}
 
 
      const mystyle ={
-        backgroundColor:"#6A5ACD",
-        borderRadius:'12px',
-        padding:'2px'
+        backgroundColor:"#0F172A",
+        borderRadius:'12px'
+        
       }
       const mystyles ={
-        backgroundColor:""
+        backgroundColor:"",
+        color:'#292524'
+      
       }
       useEffect(() => {
         setIsLiked(comment?.likes?.includes(user?._id));
@@ -75,11 +77,11 @@ const handleClick3 = (id) => {}
       <div>
       
       <div className='workout-details2' >
-        <p className="absolute  right-[12px] bottom-[1px]">@{comment?.postedBy}</p>
+        <i className="absolute  right-[12px] bottom-[1px] bg-slate-800 rounded-[12px] p-[4px] text-white">@{comment?.postedBy}</i>
         <p>{comment?.thecomments}</p> 
        <br/>
    
-      <Link onClick={likeHandler} className="absolute left-[10px] bottom-[11px] text-white" style={color ? mystyle:mystyles}><FaThumbsUp size={14}  className="text-stone-800" /></Link>
+      <span className='span2' style={color ? mystyle:mystyles}><button onClick={likeHandler}><FaThumbsUp size={14}   style={color ? mystyle:mystyles} /></button></span>
      <p className="absolute left-[38px] bottom-2">{like}</p>
     
       <span> <button  onClick={handleDelete} disabled={isdisabled} ><FaTrash size={14}  className="text-stone-800" /></button></span>

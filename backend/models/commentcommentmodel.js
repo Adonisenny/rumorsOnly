@@ -13,8 +13,16 @@ const commentcommentSchema = new Schema({
          required:true
 
     },
-   
-    
+    postedBy: {
+        type:String,
+        required:true
+        
+
+    },
+    likes:{
+        type:Array,
+        default:[]
+    },
    
 },{timestamps:true})
 

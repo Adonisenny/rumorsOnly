@@ -12,14 +12,9 @@ import CommentContent from "./commentContent";
 
 
 const Comments = ({slicedcomms}) => {
-  
-    
-    const{comments,dispatch2}=useCommentContext()
-    
-
-    // const routerParams = useParams()
-    const location =useLocation()
-    const locateAccount = location.pathname.split('/')[2]
+const{comments,dispatch2}=useCommentContext()
+const location =useLocation()
+const locateAccount = location.pathname.split('/')[2]
 const  {user} = useContext(AuthContext)
 const [thecomments,setTheComments] =useState('')
 const [myid,setMyId] = useState(locateAccount)
@@ -30,10 +25,7 @@ const [isdisabled,setIsDisabled] =useState(false)
 
                               
     
-  
-
-
-//Post comments
+  //Post comments
     const handleSubmit = async(e) => {
         e.preventDefault()
        
@@ -95,7 +87,7 @@ const [isdisabled,setIsDisabled] =useState(false)
            
         
            } catch (error) {
-            console.log(error)
+            throw error("reply not posted")
            }
         }
         fetchit()

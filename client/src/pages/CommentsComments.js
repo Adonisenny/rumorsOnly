@@ -1,16 +1,18 @@
 import axios from "axios";
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useLocation } from "react-router-dom";
-
+import { AuthContext } from "../Context/authcontext";
+import { useCommentCommentContext } from "../Hooks/useCommentCommentContext.js";
+import CommentCommentContent from "./CommentCommentContent";
 const CommentsComments = () => {
-   
+   const {commentscomments,dispatch3} = useCommentCommentContext()
    const idlocate = useLocation()
+   const  {user} = useContext(AuthContext)
    const postId = idlocate.pathname.split('/')[2]
-   
+   const [content,setContent] = useState('')
+   const postedBy = user?.username
 
-    const [content,setContent] = useState('')
-    const[commentscomments,setCommentsComments] = useState()
-    const handleContent = (e) => {
+const handleContent = (e) => {
         setContent(e.target.value)
     }
     const handleSubmit = async(e) => {
@@ -20,38 +22,47 @@ try {
     const response = await axios.post(`https://backendrumors.onrender.com/api/commentcomment/comments`,{
         postId,
         content,
+        postedBy,
     })
+    const otherJson = await response.data
     
     setContent('')
+    dispatch3({type:'CREATE_COMMENTSCOMMENTS',payload:otherJson})
+    
+
     
 } catch (error) {
-    console.error(error)
+    throw error("reply has not been posted")
     
 }
     }
+    
 
 useEffect(() => {
     const fetchcomments = async () => {
         const res =await axios.get(`https://backendrumors.onrender.com/api/commentcomment/comments/${postId}`)
         const jsonc = await res.data
-       
-        setCommentsComments(jsonc)
+        dispatch3({type:'SET_COMMENTSCOMMENTS',payload:jsonc})
         
         
     }
     fetchcomments()
-},[postId])
+},[postId,dispatch3])
 
    
-    return ( 
+    
 
-<div>
-<h3 className="text-center">Make a comment</h3>
+
+return ( 
+
+<div className="mt-8">
+
 <form onSubmit={handleSubmit} className="text-center" > 
 <div>
-    <textarea rows={4} cols={50}
-    className="bg-slate-800 rounded-[14px] text-white"
+    <textarea 
+    className=" bg-slate-800 text-red rounded-[12px] h-[80px] w-[185px] md:w-[350px]"
     value={content}
+    style={{"borderRadius":"4px","color":"white"}}
     onChange={handleContent}
     placeholder="write your comment"
     required
@@ -62,18 +73,18 @@ useEffect(() => {
 
     </textarea>
     <br />
-    <button type="submit" className="bg-slate-500">Comment</button>
+    <button  className=" text-[10px]">Reply</button>
 </div>
 
 
 </form>
-<div className=''>
+<div className="workout-details">
     {/* Map the commentcomment */}
-{commentscomments && commentscomments?.map((coscos) => {
-return <div className="workout-details2">
-    <p>{coscos?.content}</p>
+{commentscomments && commentscomments?.map((commentcomment) => {
+return <div >
+    <CommentCommentContent commentcomment={commentcomment} />
    
-    
+
      </div>
 })}
 

@@ -8,7 +8,7 @@ export const useCommentContext = () => {
     const mycontext = useContext(CommentsContext)
 
 if(!mycontext){
-    throw Error('use commentContext must be used ith right state')
+    throw Error('use commentContext must be used in the right state')
 }
 
 

@@ -21,8 +21,8 @@ const commentSchema = new  Schema({
     likes:{
         type:Array,
         default:[]
-    }
-    
+    },
+   
    
 },{timestamps:true})
 

@@ -5,7 +5,8 @@ import App from './App';
 import {MyfirstContext} from './Context/Mycontext.js'
 import { AuthContextProvider } from './Context/authcontext';
 import { CommentsContextProvider } from './Context/commentContext';
-import { LikeProvider } from './Context/likesContext';
+
+import { CommentscommentsContextProvider } from './Context/commentcommentcontext';
 
 
 
@@ -14,13 +15,14 @@ root.render(
   
     <MyfirstContext>
         <CommentsContextProvider>
+            <CommentscommentsContextProvider>
             
 <AuthContextProvider>
   
 <App />
 
 </AuthContextProvider>
-
+</CommentscommentsContextProvider>
 </CommentsContextProvider>
     </MyfirstContext>
    
