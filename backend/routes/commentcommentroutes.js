@@ -3,7 +3,7 @@ import { createCommentsComments, getallcommentcommentcontrols, getcommentcomment
 
 const router = express.Router()
 
-router.post('/', createCommentsComments)
+router.post('/comments', createCommentsComments)
 router.get('/:postId', getcommentcommentControl)
 
 router.get('/',getallcommentcommentcontrols)

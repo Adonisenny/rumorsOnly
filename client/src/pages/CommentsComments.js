@@ -12,27 +12,30 @@ const CommentsComments = () => {
    const [content,setContent] = useState('')
    const postedBy = user?.username
 
+
 const handleContent = (e) => {
         setContent(e.target.value)
     }
+
+    
     const handleSubmit = async(e) => {
         e.preventDefault()
 try {
+    // const myCommentscomments = {content,postedBy,postId}
     
     const response = await axios.post(`https://backendrumors.onrender.com/api/commentcomment/comments`,{
-        postId,
-        content,
-        postedBy,
-    })
-    const otherJson = await response.data
+        
+    postId,content})
+    // const otherJson = await response.data
+    
     
     setContent('')
-    dispatch3({type:'CREATE_COMMENTSCOMMENTS',payload:otherJson})
+    // dispatch3({type:'CREATE_COMMENTSCOMMENTS',payload:otherJson})
     
 
     
 } catch (error) {
-    throw error("reply has not been posted")
+   console.log('can not be posted')
     
 }
     }
@@ -57,7 +60,7 @@ return (
 
 <div className="mt-8">
 
-<form onSubmit={handleSubmit} className="text-center" > 
+<form  className="text-center" > 
 <div>
     <textarea 
     className=" bg-slate-800 text-red rounded-[12px] h-[80px] w-[185px] md:w-[350px]"
@@ -73,14 +76,14 @@ return (
 
     </textarea>
     <br />
-    <button  className=" text-[10px]">Reply</button>
+    <button onClick={handleSubmit} className=" text-[10px]">Reply</button>
 </div>
 
 
 </form>
 <div className="workout-details">
     {/* Map the commentcomment */}
-{commentscomments && commentscomments?.map((commentcomment) => {
+{commentscomments?.map((commentcomment) => {
 return <div >
     <CommentCommentContent commentcomment={commentcomment} />
    

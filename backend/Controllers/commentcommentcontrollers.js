@@ -4,13 +4,16 @@ import mongoose from 'mongoose'
 export const createCommentsComments = async (req,res,next) => {
     try {
 
- const commentcomment= await Commentcomment.create({
-     postId,content,postedBy
+      const newCommentcomment =  new Commentcomment({
+        content:req.body.content,
+        postedBy:req.body.postedBy,
+        postId:req.body.postId
 })
-res.status(commentcomment)
+res.status(newCommentcomment)
         
     } catch (error) {
         res.status(500).json({error:"comment not created"})
+       
        
     }
 }

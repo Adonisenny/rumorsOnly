@@ -40,7 +40,7 @@ app.use('/api/rumors',rumorrouter)
 app.use('/api/auth',authrouter)
 
 app.use('/api/comments',commentrouter)
-app.use('/api/commentcomment/comments',commentcommentrouter)
+app.use('/api/commentcomment',commentcommentrouter)
 app.use('/api/profile',upload.single('image'),profilerouter)
 app.use('/api/likes', likesrouter)
 app.use('/api/profile/likes', likesrouter)

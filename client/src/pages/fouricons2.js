@@ -1,4 +1,4 @@
-import { FaThumbsUp, FaTrash } from "react-icons/fa";
+import { FaThumbsUp} from "react-icons/fa";
 
 
 

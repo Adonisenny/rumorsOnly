@@ -40,18 +40,22 @@ export const CommentController = async(req,res) => {
 //Get  comments attached to a particular post
     export const getCommentControl = async(req,res) => {
    
-        try {
-         const myid = req.params.myid
+    //    
     
-        const comment = await Comment.find({myid:myid})
-        if(!comment){
-         return res.status(404).json({message:'comment not found'})
-        }
-        res.status(200).json(comment)
+
+
+    try {
+        const {postId, content } =req.body
         
-        } catch (error) {
-            res.status(500).json({error:"comment not found"})
-    }
+        const commentcomment= await Commentcomment.create({
+            postId,content
+        })
+        res.status(commentcomment)
+                
+            } catch (error) {
+                res.status(500).json({error:"comment not created"})
+                // res.status(500).json({message:'Server is down server is down'})
+            }
     }   
 
 

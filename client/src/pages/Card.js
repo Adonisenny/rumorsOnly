@@ -21,7 +21,10 @@ const [addlink,setAddLink] = useState(true)
 const [isdisabled,setIsDisabled] = useState(false)
 const [like, setLike] = useState(rumor?.likes?.length);
 const [isLiked, setIsLiked] = useState(false);
+const[able,setLikeDisabled] = useState(false)
+const [deletedPost,SetDeletedPost] = useState(false)
 const divref = useRef(null)
+
 
 useEffect(() => {
 const handleDivRef = (event) => {
@@ -45,7 +48,7 @@ document.removeEventListener('click',handleDivRef)
 const myday = rumor.createdAt
 const postday = new Date(myday)
 const currentDate = new Date()
-const trydate = (postday.getDate() +  " " + postday.toLocaleString('default', { month: 'short' }) + " " + postday.getFullYear())
+const trydate = (postday.getDate() +  " " + postday.toLocaleString('default', { month: 'short' }) + " " + postday.getFullYear().toString().slice(2))
 currentDate.setHours(0,0,0,0)
 
 //delete Icons
@@ -59,8 +62,15 @@ const handleClick = async () => {
 
     const ideleted = await deletejson.data
     
-    dispatch({type:'DELETE_RUMORS', payload:ideleted})
-    console.log(ideleted)
+    
+     
+    if(deletejson.status ===200){
+      SetDeletedPost(true)
+         }
+         setTimeout(() => {
+          dispatch({type:'DELETE_RUMORS', payload:ideleted})
+         },3000)
+
 
    } catch (error) {
     console.log(error)
@@ -70,7 +80,7 @@ const handleClick = async () => {
 
 //knowing who can delete
   useEffect(() => {
-    if(myusername !==rumor?.postedBy ){
+    if(myusername !==rumor?.postedBy ){ 
       setIsDisabled(true)
     }
   },[myusername,rumor.postedBy])
@@ -118,14 +128,19 @@ const likeHandler = () => {
   const filterLikes = rumor?.likes?.filter(rums => rums === user?._id).map((flikes) => {
 return   flikes 
  })
-
-
+// anyone  not logged in can not make a comment
+useEffect(() =>{
+  if(myusername===undefined){
+    setLikeDisabled(true)
+   
+    }
+},[myusername])
   
 
 
     return (
       <div className='scroll-bar'>
-        
+        {deletedPost && <p className='fixed top-[60px] left-[360px] p-2 rounded-md text-black bg-slate-800'>rumor deleted</p>}
         <div className="workout-details   bg-transparent" >
         <div >
         <p className='' style={{textWrap:'wrap',color:'white'}}>{rumor?.story}</p>
@@ -137,13 +152,13 @@ return   flikes
  <br />
    
           <div>
-  <span> <Link to={`/comments/${rumor._id}`}  className="absolute left-[45px] bottom-[12px]"  ><FaComment size={14} className="text-stone-800" disabled={isdisabled}/></Link></span>
+  <span> <Link to={`/comments/${rumor._id}`}  className="absolute left-[45px] bottom-[12px]" disabled={able} ><FaComment size={14} className="text-stone-800" /></Link></span>
 
  </div>  
 <div>
   <br />
 
-<FourIcons trydate={trydate}  mystyle={mystyle} mystyles={mystyles} handleClick={handleClick}  isdisabled={isdisabled}  rumourid={rumor?._id} likeHandler={likeHandler} like={like} color={color}/>
+<FourIcons trydate={trydate} able={able} mystyle={mystyle} mystyles={mystyles} handleClick={handleClick}  isdisabled={isdisabled}  rumourid={rumor?._id} likeHandler={likeHandler} like={like} color={color}/>
 </div>
 
 </div>

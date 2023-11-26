@@ -59,6 +59,10 @@ const Loginform = () => {
     return (  
         <>
          {poping && <Notification message="Logged in successfully!" onClose={closeNotify} />}
+         {poping && <Notification message={`welcome ${username}`}
+         
+         
+         onClose={closeNotify} />}
 <form className="contains">
     
     <br /> <br />
