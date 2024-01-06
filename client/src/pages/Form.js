@@ -62,14 +62,14 @@ const CreateForm = ({likes}) => {
                 
                 dispatch({type:'CREATE_RUMORS',payload:otherJson})
                setError(null)
-               if(res.statusText ==="OK"){
+              
                 setPop(true)
                 setTimeout(() => {
                     navigate('/')
                 },2000)
               
 
-               } 
+               
             
      } catch (error) {
             console.log(error)

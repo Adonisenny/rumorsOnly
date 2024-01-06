@@ -18,7 +18,7 @@ const postedBy = user?.username
 const [isdisabled,setIsDisabled] =useState(false)
 
 
-                              
+      console.log(locateAccount)                        
     
   //Post comments
     const handleSubmit = async(e) => {
@@ -76,7 +76,7 @@ const [isdisabled,setIsDisabled] =useState(false)
            
         
            } catch (error) {
-            throw error("reply not posted")
+            console.log("could not get reply")
            }
         }
         fetchit()
