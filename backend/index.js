@@ -14,6 +14,7 @@ import profilerouter from './routes/profileRoutes.js'
 import likesrouter from './routes/likesroutes.js'
 import commentcommentrouter from './routes/commentcommentroutes.js' 
 
+
  // express app
 const app = express()
 const upload = multer({dest:'uploads/'})
@@ -25,6 +26,12 @@ app.use('/uploads',express.static('uploads'))
 app.use(cors({
     origin:["http://localhost/3000", "https://testingrumors.onrender.com"],
 }))
+
+
+
+
+
+
 
 
 //middlewares
@@ -60,3 +67,34 @@ mongoose.connect(process.env.MONGO)
 .catch((errror) => {
     console.log(errror)
 })
+
+
+
+
+
+
+const express = require("express");
+
+// Set middleware of CORS 
+app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://testingrumors.onrender.com"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Authorization, X-Content-Type-Options, Accept, X-Requested-With, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader("Access-Control-Allow-Private-Network", true);
+  //  Firefox caps this at 24 hours (86400 seconds). Chromium (starting in v76) caps at 2 hours (7200 seconds). The default value is 5 seconds.
+  res.setHeader("Access-Control-Max-Age", 7200);
+
+  next();
+}
+)
+
