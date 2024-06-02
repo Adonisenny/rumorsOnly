@@ -55,18 +55,15 @@ const CreateForm = ({likes}) => {
     
         const otherJson = await res.data
            
-          
-                
-                setStory("")
-                
-                
-                dispatch({type:'CREATE_RUMORS',payload:otherJson})
-               setError(null)
-              
-                setPop(true)
+          setStory("")
+              dispatch({type:'CREATE_RUMORS',payload:otherJson})
+          setError(null)
+           setPop(true)
              if(res.statusText==='OK'){
                     navigate('/')
-               }
+               }else{
+                 setError('unexpected network error status')
+             }
               
               
 
