@@ -64,9 +64,10 @@ const CreateForm = ({likes}) => {
                setError(null)
               
                 setPop(true)
-                setTimeout(() => {
+             if(res.statusText==='OK'){
                     navigate('/')
-                },2000)
+               }
+              
               
 
                
