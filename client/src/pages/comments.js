@@ -17,8 +17,7 @@ const [myid,setMyId] = useState(locateAccount)
 const postedBy = user?.username
 const [isdisabled,setIsDisabled] =useState(false)
 
-
-      console.log(locateAccount)                        
+                       
     
   //Post comments
     const handleSubmit = async(e) => {

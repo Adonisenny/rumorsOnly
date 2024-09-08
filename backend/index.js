@@ -8,7 +8,8 @@ import authrouter from './routes/authroutes.js'
 import multer from 'multer'
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
-import rumorrouter from './routes/rumorroutes.js'
+import rumorrouter from './routes/rumorroutes.js';
+import messagerouter from './routes/directMessageroutes.js'
 
 import commentrouter from './routes/commentRoutes.js'
 import profilerouter from './routes/profileRoutes.js'
@@ -38,7 +39,7 @@ app.use((req,res,next)=> {
 
 app.use('/api/rumors',rumorrouter)
 app.use('/api/auth',authrouter)
-
+app.use('api/directmessages',messagerouter)
 app.use('/api/comments',commentrouter)
 app.use('/api/commentcomment',commentcommentrouter)
 app.use('/api/profile',upload.single('image'),profilerouter)

@@ -15,6 +15,7 @@ import ProfileSetUP from "./pages/myprofile/ProfileSetUp.js";
 import CommentsComments from "./pages/CommentsComments";
 import Likes from "./pages/myprofile/Like";
 import Logoutpage from "./pages/logoutpage";
+import Endtoend from "./pages/DirectMessages/endtoend.js";
 
 
 function App() {
@@ -76,6 +77,13 @@ element={<CommentsComments/>}
 <Route 
 path="/profile/likes/:_id"
 element={<Likes/>}
+
+/>
+
+
+<Route 
+path="/directmessage"
+element={<Endtoend/>}
 
 />
     </Routes>
