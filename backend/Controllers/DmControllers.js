@@ -6,7 +6,7 @@ import MyMessage from '../models/DmModel.js'
 export const PostMessages = async(req,res,next) => {
 try {
     const newDm = new MyMessage({
-        Dm:req.body.dm
+        Dm:req.body.Dm
 
     })
     await newDm.save()
