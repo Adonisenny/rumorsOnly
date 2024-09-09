@@ -15,8 +15,8 @@ setDirectMessage(e.target.value)
         
        
        try {
-        const MyMessage = {directMessage}
-        const res = await axios.post('https://backendrumors.onrender.com/api/directmessages', MyMessage)
+        const Dm = {directMessage}
+        const res = await axios.post('https://backendrumors.onrender.com/api/directmessages', Dm)
         const otherRes = await res.data
         setDirectMessage('')
         dispatch3({type:'CREATE_DM',payload:otherRes})

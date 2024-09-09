@@ -3,11 +3,10 @@ import MyMessage from '../models/DmModel.js'
 
 
 
-export const DmControllers = async(req,res,next) => {
+export const PostMessages = async(req,res,next) => {
 try {
     const newDm = new MyMessage({
-        myMessages:req.body.directmessages,
-        theId:req.body.theId
+        dm:req.body.dm
 
     })
     await newDm.save()

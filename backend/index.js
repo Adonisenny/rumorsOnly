@@ -9,17 +9,19 @@ import multer from 'multer'
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import rumorrouter from './routes/rumorroutes.js';
-import messagerouter from './routes/directMessageroutes.js'
+import messagerouter from './routes/directMessageroutes.js';
 
-import commentrouter from './routes/commentRoutes.js'
-import profilerouter from './routes/profileRoutes.js'
-import likesrouter from './routes/likesroutes.js'
-import commentcommentrouter from './routes/commentcommentroutes.js' 
+import commentrouter from './routes/commentRoutes.js';
+import profilerouter from './routes/profileRoutes.js';
+import likesrouter from './routes/likesroutes.js';
+import commentcommentrouter from './routes/commentcommentroutes.js';
 
  // express app
 const app = express()
 app.use(cors({
     origin:["http://localhost/3000", "https://testingrumors.onrender.com"],
+    methods:"GET,POST,PUT,DELETE",
+    allowedHeaders:"Content-Type,Authorization"
 }))
 const upload = multer({dest:'uploads/'})
 dotenv.config()
@@ -39,7 +41,7 @@ app.use((req,res,next)=> {
 
 app.use('/api/rumors',rumorrouter)
 app.use('/api/auth',authrouter)
-app.use('api/directmessages',messagerouter)
+app.use('/api/directmessages',messagerouter)
 app.use('/api/comments',commentrouter)
 app.use('/api/commentcomment',commentcommentrouter)
 app.use('/api/profile',upload.single('image'),profilerouter)

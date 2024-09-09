@@ -1,8 +1,10 @@
 import express from 'express'
-import { DmControllers, getMessageControl, getallMessagecontrols } from '../Controllers/DmControllers'
-import { getCommentControl } from '../Controllers/commentController'
+import { PostMessages, getMessageControl, getallMessagecontrols } from '../Controllers/DmControllers.js'
+
 const router =express.Router()
 
-router.post('/',DmControllers)
-router.get('/directmessages',getallMessagecontrols)
+router.post('/',PostMessages)
+router.get('/',getallMessagecontrols)
 router.get('/:theid',getMessageControl)
+
+export default router;
