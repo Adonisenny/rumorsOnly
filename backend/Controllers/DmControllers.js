@@ -4,12 +4,12 @@ import MyMessage from '../models/DmModel.js'
 
 
 export const PostMessages = async(req,res) => {
-    const {conversationId,sender,text} =req.body
+    const {conversationId,sender,Text} =req.body
 try {
     const newMessage = new MyMessage({
         conversationId,
         sender,
-        text
+        Text
         })
         const savedMessage = await newMessage.save();
         res.status(201).json(savedMessage)
