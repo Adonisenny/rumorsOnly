@@ -4,15 +4,21 @@ import MyMessage from '../models/DmModel.js'
 
 
 export const PostMessages = async(req,res) => {
-    const {conversationId,sender,Text} =req.body
+   
 try {
+    if(!mongoose.Types.ObjectId.isValid(req.body.conversationId)){
+        return res.status(400).json({error:'invalid conversatioId'})
+    }
+    if(!mongoose.Types.ObjectId.isValid(req.body.senderId)){
+        return res.status(400).json({error:'invalid senderId'})
+    }
     const newMessage = new MyMessage({
-        conversationId,
-        sender,
-        Text
+        conversationId:req.body.conversationId,
+        senderId:req.body.senderId,
+        Text:req.body.Text
         })
         const savedMessage = await newMessage.save();
-        res.status(201).json(savedMessage)
+        res.status(200).json(savedMessage)
     
 } catch (error) {
     res.status(500).json({error:error.message})
