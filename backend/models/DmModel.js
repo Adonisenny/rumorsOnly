@@ -1,15 +1,29 @@
 import mongoose from "mongoose"
 const Schema = mongoose.Schema
 const messageSchema = new Schema({
-    Dm:{
+    conversationId:{
+        type:Schema.Types.ObjectId,
+        ref:'Conversation',
+        required:true
+    },
+    sender:{
+        type:Schema.Types.ObjectId,
+        ref:'User',
+        required:true
+    },
+    Text:{
         type:String,
-        required:true,
+        required:true
         
 
     },
+    createdAt:{
+        type:Date,
+        default:Date.now
+    }
     
    
    
-},{timestamps:true})
+})
 
 export default mongoose.model("MyMessage",messageSchema)

@@ -3,44 +3,46 @@ import MyMessage from '../models/DmModel.js'
 
 
 
-export const PostMessages = async(req,res,next) => {
+export const PostMessages = async(req,res) => {
+    const {conversationId,sender,text} =req.body
 try {
-    const newDm = new MyMessage({
-        Dm:req.body.Dm
-
-    })
-    await newDm.save()
-    res.status(200).json(newDm)
+    const newMessage = new MyMessage({
+        conversationId,
+        sender,
+        text
+        })
+        const savedMessage = await newMessage.save();
+        res.status(201).json(savedMessage)
+    
 } catch (error) {
-    console.log(error)
+    res.status(500).json({error:error.message})
 }
 }
 
 
-export const getallMessagecontrols = async(req,res) => {
+export const getMessagecontrols = async(req,res) => {
     try {
-     const myMessages = await MyMessage.find({}).sort({createdAt:-1})
-         res.status(200).json(myMessages)
-      
+     const messages = await MyMessage.find({conversationId:req.params.conversationId})
+     res.status(200).json(messages)
     } catch (error) {
         res.status(500).json({error:"messages not found"})
     }
     }
 
 
-    export const getMessageControl = async(req,res) => {
+    // export const getMessageControl = async(req,res) => {
    
-        try {
-            const theid = req.params.theid
+    //     try {
+    //         const theid = req.params.theid
             
        
-           const themessage = await MyMessage.find({theid:theid})
-           if(!themessage){
-            return res.status(404).json({message:'message not found'})
-           }
-           res.status(200).json(themessage)
+    //        const themessage = await MyMessage.find({theid:theid})
+    //        if(!themessage){
+    //         return res.status(404).json({message:'message not found'})
+    //        }
+    //        res.status(200).json(themessage)
            
-           } catch (error) {
-               res.status(500).json({error:"message not found"})
-       }
-    }   
+    //        } catch (error) {
+    //            res.status(500).json({error:"message not found"})
+    //    }
+    // }   

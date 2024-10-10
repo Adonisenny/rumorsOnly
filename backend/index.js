@@ -10,6 +10,7 @@ import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import rumorrouter from './routes/rumorroutes.js';
 import messagerouter from './routes/directMessageroutes.js';
+import conversationrouter from './routes/conversationRoutes.js'
 
 import commentrouter from './routes/commentRoutes.js';
 import profilerouter from './routes/profileRoutes.js';
@@ -25,7 +26,7 @@ app.use(cors({
 }))
 const upload = multer({dest:'uploads/'})
 dotenv.config()
-app.use(cors())
+
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended:false}))
 app.use('/uploads',express.static('uploads'))
@@ -42,7 +43,9 @@ app.use((req,res,next)=> {
 app.use('/api/rumors',rumorrouter)
 app.use('/api/auth',authrouter)
 app.use('/api/directmessages',messagerouter)
+app.use('/api/conversation',conversationrouter)
 app.use('/api/comments',commentrouter)
+
 app.use('/api/commentcomment',commentcommentrouter)
 app.use('/api/profile',upload.single('image'),profilerouter)
 app.use('/api/likes', likesrouter)
@@ -55,9 +58,14 @@ app.get("/", (req,res,next)=>{
 
 const buildPath = path.join(process.cwd(), 'client', 'build');
   // Define a catch-all route that serves index.html for all routes
-app.get('*', (req, res) => {
+app.use(express.static(buildPath))
+  app.get('*', (req, res) => {
     res.sendFile(path.join(buildPath, 'index.html'));
   });
+  //Error handling
+  app.use((err,req,res)=> {
+    res.status(err.status || 500).json({error:err.message})
+  })
 
 mongoose.connect(process.env.MONGO)
 .then(() => {
