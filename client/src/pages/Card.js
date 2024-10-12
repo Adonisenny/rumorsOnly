@@ -144,7 +144,7 @@ useEffect(() =>{
         <div className="workout-details   bg-transparent" >
         <div >
         <p className='' style={{textWrap:'wrap',color:'white'}}>{rumor?.story}</p>
-        <i className='absolute right-[12px] bottom-[1px] bg-slate-800 rounded-[12px] p-[4px] text-white'>{rumor.postedBy}</i>
+       <Link> <i className='absolute right-[12px] bottom-[1px] bg-slate-800 rounded-[12px] p-[4px] text-white'>{rumor.postedBy}</i></Link>
         
        
         </div> 
