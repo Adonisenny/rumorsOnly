@@ -59,6 +59,7 @@ const CreateForm = ({likes}) => {
               dispatch({type:'CREATE_RUMORS',payload:otherJson})
           setError(null)
            setPop(true)
+           console.log(res.statusText)
              if(res.statusText==='OK'){
                     navigate('/')
                }else{
@@ -100,7 +101,7 @@ style={{"borderRadius":"7px","color":"white"}}
  &nbsp; &nbsp; &nbsp;  
 <p style={{'display':'inline-bslock'}}>{thelength}</p>
 
-{Error &&  <p style={{"backgroundColor":"white","color":"red","paddingLeft":"30px","paddingTop":"15px",'paddingBottom':'15px','borderRadius':'8px'}}>{Error}</p>}
+{Error &&  <p style={{"color":"red","paddingLeft":"30px","paddingTop":"15px",'paddingBottom':'15px','borderRadius':'8px'}}>{Error}</p>}
 
 </form>
 
