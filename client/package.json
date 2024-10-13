@@ -6,11 +6,6 @@
  
  "private": true,
  
- 
-
-
-
-
   "dependencies": {
  
 "@testing-library/jest-dom": "^5.16.5",
@@ -78,8 +73,6 @@
   "eject": "react-scripts eject",
  
 
-
-
   "install-server": "cd backend && npm install",
  
 
@@ -91,27 +84,14 @@
  
 
 
-
-
   "start-client": "cd client && npm run start"
  
 
-
-
-
   },
-  "proxy": "https://backendrumors.onrender.com",
  
-
-
-
 
   "eslintConfig": {
  
-
-
-
-
 
   "extends": [
 
@@ -125,25 +105,15 @@
   ]
  
 
-
-
-
   },
- 
-
-
 
 
   "browserslist": {
- 
-
 
   "production": [
  
 
   ">0.2%",
- 
-
 
   "not dead",
  
@@ -152,14 +122,6 @@
 
   "not op_mini all"
  
-
-
-
-
-   
-
-
-
 
   ],
 
@@ -178,14 +140,8 @@
   ]
  
 
-
-
-
   },
  
-
-
-
 
   "devDependencies": {
  
