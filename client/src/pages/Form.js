@@ -60,7 +60,7 @@ const CreateForm = ({likes}) => {
           setError(null)
            setPop(true)
            console.log(res.statusText)
-             if(res.statusText==='OK'){
+             if(res.status===200){
                     navigate('/')
                }else{
                  setError('unexpected network error status')
@@ -101,7 +101,7 @@ style={{"borderRadius":"7px","color":"white"}}
  &nbsp; &nbsp; &nbsp;  
 <p style={{'display':'inline-bslock'}}>{thelength}</p>
 
-{Error &&  <p style={{"color":"red","paddingLeft":"30px","paddingTop":"15px",'paddingBottom':'15px','borderRadius':'8px'}}>{Error}</p>}
+{Error &&  <p style={{'backgroundColor':'white','paddingBottom':'15px','borderRadius':'8px'}}>{Error}</p>}
 
 </form>
 

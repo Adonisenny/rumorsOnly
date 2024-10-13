@@ -97,7 +97,7 @@ const mystyles ={
   color:'#292524'
 }
 
-console.log(rumor)
+
 
 
 useEffect(() => {

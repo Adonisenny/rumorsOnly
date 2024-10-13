@@ -77,6 +77,6 @@ mongoose.connect(process.env.MONGO)
         })
     }
 })
-.catch((errror) => {
-    console.log(errror)
+.catch((error) => {
+    console.log(error)
 })
