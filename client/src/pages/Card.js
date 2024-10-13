@@ -97,7 +97,7 @@ const mystyles ={
   color:'#292524'
 }
 
-
+console.log(rumor)
 
 
 useEffect(() => {
@@ -144,7 +144,7 @@ useEffect(() =>{
         <div className="workout-details   bg-transparent" >
         <div >
         <p className='' style={{textWrap:'wrap',color:'white'}}>{rumor?.story}</p>
-       <Link to='/' className='absolute right-[12px] bottom-[1px] bg-slate-800 rounded-[12px] p-[4px] text-white'>{rumor.postedBy}</Link>
+       <Link to={`/profile/${rumor?.theId}`}> <i className='absolute right-[12px] bottom-[1px] bg-slate-800 rounded-[12px] p-[4px] text-white'>{rumor.postedBy}</i></Link>
         
        
         </div> 

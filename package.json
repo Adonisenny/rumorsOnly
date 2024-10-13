@@ -26,5 +26,6 @@
     "build-client":"cd client && npm run build",
     "start-client":"cd client && npm run start"
    
-    }
+    },
+    "proxy": "https://backendrumors.onrender.com"
   }
