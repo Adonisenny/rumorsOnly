@@ -85,7 +85,7 @@ export const updateLikes = async(req,res,next) => {
    
             try {
              const theId = req.params.theId
-              console.log(theId)
+           
             const profilerumour = await Rumor.find({theId:theId})
             if(!profilerumour){
              return res.status(404).json({message:'profile  not found'})

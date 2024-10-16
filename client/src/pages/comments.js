@@ -15,6 +15,7 @@ const  {user} = useContext(AuthContext)
 const [thecomments,setTheComments] =useState('')
 const [myid,setMyId] = useState(locateAccount)
 const postedBy = user?.username
+const theId = user?._id
 const [isdisabled,setIsDisabled] =useState(false)
 
                        
@@ -27,7 +28,8 @@ const [isdisabled,setIsDisabled] =useState(false)
        }
        
         try {
-            const myComments = {thecomments,postedBy,myid}
+            const myComments = {thecomments,postedBy,myid,theId}
+            // const res = await axios.post('https://backendrumors.onrender.com/api/comments',myComments)
             const res = await axios.post('https://backendrumors.onrender.com/api/comments',myComments)
             const otherJson = await res.data
            setTheComments('')

@@ -25,7 +25,8 @@ const ProfileNavbar = () => {
     e.preventDefault()
     dispatch({type:"SUCCESS"})
     try {
-      const res = await axios.post("https://backendrumors.onrender.com/api/auth/logout")
+       const res = await axios.post("https://backendrumors.onrender.com/api/auth/logout")
+    
       dispatch({type:"LOGOUT",payload:res.data})
       setMenuOpen(false)
     } catch (error) {
@@ -46,11 +47,15 @@ useEffect(() => {
   }
 
 
+
+
+
 useEffect(() => {
     const fetchit = async() => {
   
   
         try {
+        // const response = await axios.get('https://backendrumors.onrender.com/api/profile')
         const response = await axios.get('https://backendrumors.onrender.com/api/profile')
         const pdetails = await response.data
         setProfileDetails(pdetails)
@@ -71,21 +76,15 @@ useEffect(() => {
   return (
     <header className='header2 bg-slate-800 rounded-[14px]' >
         <div className=' only flex '>
-      <Link to="/">
-          <p><i className=''>OnlyRumors</i></p>
-        </Link>
-
-
-
-
-
-        <div className="hidden md:flex">
+     
+  <div className="hidden md:flex">
 {(profileDetails || null ) && profileDetails?.filter(profileDetail => profileDetail?.userId === user_id).map((filteredprofile) =>{
   return <div key={filteredprofile?._id}>
 
 
- <img src={`https://backendrumors.onrender.com/${filteredprofile?.imageUrl}`} alt="Not seen yet"  className="w-[60px] h-[60px] rounded-[50%]"/>
-    
+ {/* <img src={`https://backendrumors.onrender.com/${filteredprofile?.imageUrl}`} alt="Not seen yet"  className="w-[60px] h-[60px] rounded-[50%]"/> */}
+ {/* <img src={`https://backendrumors.onrender.com/${filteredprofile?.imageUrl}`} alt="Not seen yet"  className="w-[60px] h-[60px] rounded-[50%]"/>
+     */}
    
   
     
@@ -96,33 +95,11 @@ useEffect(() => {
 
 }
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
+  
         </div>
         <hr/>
       <div className="container">
-        
+        <Link to='/'>Home</Link>
         {!myusername && <Link to="/registration" style={{"textDecoration":"none", "display":"flex"}}>Register here</Link>}
        {myusername&& <Link to={`/profile/${user._id}`}  style={{"textDecoration":"none", "display":"flex"}}>{myusername}</Link>}
       

@@ -93,7 +93,7 @@ const Profile = () => {
         </div>}
      { (activeTab === "likes") &&<div>
                  {rumors?.map((rum) =>rum?.likes.filter(like => userId===like).map((outing) => {
-                return <div className="workout-details">
+                return <div className="workout-details" key={rum}>
                   
                   <ProfileLike rum={rum}/>
                 </div>
@@ -105,14 +105,6 @@ const Profile = () => {
             <ProfileComments />
             </div>}
            </div>
- 
-                    
-                   
-                    
-           
-
-
-
 <div className="right-[35px] top-[200px] bg-slate-800  md:top-[330px] md:right-[80px] fixed w-[47px] h-[47px] rounded-[50%] bg-[#9998a4] opacity-75">
 <Link to ='/form' >
 <img src='https://cdn.icon-icons.com/icons2/2248/PNG/512/broom_icon_136857.png' alt="broom2" className="h-[42px] w-[42px]"/>

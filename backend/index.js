@@ -20,7 +20,8 @@ import commentcommentrouter from './routes/commentcommentroutes.js';
  // express app
 const app = express()
 app.use(cors({
-    origin:["http://localhost/3000", "https://testingrumors.onrender.com"],
+    // origin:["http://localhost/3000", "https://testingrumors.onrender.com"],
+    origin:"*",
     methods:"GET,POST,PUT,DELETE",
     allowedHeaders:"Content-Type,Authorization",
     credentials:true,
@@ -48,7 +49,8 @@ app.use('/api/conversation',conversationrouter)
 app.use('/api/comments',commentrouter)
 
 app.use('/api/commentcomment',commentcommentrouter)
-app.use('/api/profile',upload.single('image'),profilerouter)
+ app.use('api/profile',profilerouter)
+ app.use('/api/profile',upload.single('image'),profilerouter)
 app.use('/api/likes', likesrouter)
 app.use('/api/profile/likes', likesrouter)
 //Routes

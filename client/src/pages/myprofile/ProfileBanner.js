@@ -56,18 +56,8 @@ const ProfileBanner = ({myprofile}) => {
     }
   }
 
- const profileDetail = profileDetails && profileDetails?.map((prof) => {
- return <div>{prof._id}</div>
- })
 
-
-
-const filterit = rumors?.map((rumor) => rumor?.likes?.filter(rums => rums === user?._id))
-
-console.log(filterit)
-
-
-    return ( 
+return ( 
 
 <div className="relative flex">
 

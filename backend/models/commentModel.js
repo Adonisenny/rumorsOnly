@@ -18,6 +18,10 @@ const commentSchema = new Schema({
         
 
     },
+    theId:{
+        type:String,
+        
+    },
     likes:{
         type:Array,
         default:[]

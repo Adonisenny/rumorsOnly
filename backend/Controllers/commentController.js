@@ -11,7 +11,8 @@ export const CommentController = async(req,res) => {
         const newComment =  new Comment({
           thecomments:req.body.thecomments,
           postedBy:req.body.postedBy,
-          myid:req.body.myid
+          myid:req.body.myid,
+          theId:req.body.theId,
         })
        await newComment.save()
        res.status(200).json(newComment)
@@ -87,3 +88,20 @@ export const CommentController = async(req,res) => {
                     }
                   
                     }
+
+
+                    export const getProfileComment = async(req,res) => {
+   
+                        try {
+                         const theId = req.params.theId
+                       
+                        const profilecomment = await Comment.find({theId:theId})
+                        if(!profilecomment){
+                         return res.status(404).json({message:'profile  not found'})
+                        }
+                        res.status(200).json(profilecomment)
+                         
+                        } catch (error) {
+                         console.log(error)
+                        }
+                    }  

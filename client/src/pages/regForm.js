@@ -29,7 +29,7 @@ useEffect(()=>{
     if(!mymail){
         setError("your email must include @")
     }else if(!mypassword){
-        setError('password must include letters and numbers')
+        setError('password must include numbers')
     }else{
         setError('')
     }
@@ -45,6 +45,7 @@ useEffect(()=>{
         dispatch({type:"LOGIN_START"})
        
         try {
+          
             const res = await axios.post('https://backendrumors.onrender.com/api/auth/register',information)
              const otherJson = await res.data
            

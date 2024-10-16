@@ -13,6 +13,7 @@ imageUrl:req.file?.path
       
     } catch (error) {
         console.log(error)
+        res.json({error:'failed to create profile'})
     }
 
 }
@@ -20,11 +21,11 @@ imageUrl:req.file?.path
 export const getAllProfile = async(req,res,next) => {
     try {
 
+const theprofiles = await Profile.find({}).sort({createdAt:-1})
 
-        const profiles = await Profile.find()
-        res.status(200).json(profiles)
+        res.status(200).json(theprofiles)
     } catch (error) {
-        next(error)
+        res.status(500).json({error:"profile not found"})
     }
 }
 export const getProfile = async(req,res) => {
